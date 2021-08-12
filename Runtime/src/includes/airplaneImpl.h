@@ -16,12 +16,12 @@ class AirplaneBody : public Airplane, public Body{
         string manufacturer;
         string registration;
         string pilot;
-        string coPilot;
+        string copilot;
         int capacity;
 
     public:
 
-        AirplaneBody(string model="", string manufacturer="", string registration="", string pilot="", string coPilot="", int capacity=0);
+        AirplaneBody(string model="", string manufacturer="", string registration="", string pilot="", string copilot="", int capacity=0);
         virtual ~AirplaneBody();
 
         int getAirplaneIdentifier();
@@ -43,8 +43,8 @@ class AirplaneBody : public Airplane, public Body{
         void setPilot(string pilot);
 
 
-        string getCoPilot();
-        void setCoPilot(string coPilot);
+        string getCopilot();
+        void setCopilot(string copilot);
 
 
         int getCapacity();
@@ -55,14 +55,14 @@ class AirplaneBody : public Airplane, public Body{
 class AirplaneHandle : public Airplane, public Handle<AirplaneBody>{
 
     public:
-        AirplaneHandle(int airplaneIdentifier = -1, string model="", string manufacturer="", string registration="", string pilot="", string coPilot="", int capacity=0){
+        AirplaneHandle(int airplaneIdentifier = -1, string model="", string manufacturer="", string registration="", string pilot="", string copilot="", int capacity=0){
             pImpl_->SetAirplaneIdentifier(airplaneIdentifier);
             pImpl_->setModel(model);
             pImpl_->setModel(model);
             pImpl_->setManufacturer(manufacturer);
             pImpl_->setRegistration(registration);
             pImpl_->setPilot(pilot);
-            pImpl_->setCoPilot(coPilot);
+            pImpl_->setCopilot(copilot);
             pImpl_->setCapacity(capacity);
         }
         virtual ~AirplaneHandle(){};
@@ -107,11 +107,11 @@ class AirplaneHandle : public Airplane, public Handle<AirplaneBody>{
         }
 
 
-        string getCoPilot() const {
-        	return pImpl_->getCoPilot();
+        string getCopilot() const {
+        	return pImpl_->getCopilot();
         }
-        void setCoPilot(string coPilot) {
-        	pImpl_->setCoPilot(coPilot);
+        void setCopilot(string copilot) {
+        	pImpl_->setCopilot(copilot);
         }
 
 

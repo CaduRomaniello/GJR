@@ -32,8 +32,8 @@ class Airplane{
         virtual void setPilot(string pilot) = 0;
 
 
-        virtual string getCoPilot() const = 0;
-        virtual void setCoPilot(string coPilot) = 0;
+        virtual string getCopilot() const = 0;
+        virtual void setCopilot(string copilot) = 0;
 
 
         virtual int getCapacity() const = 0;

@@ -1,164 +1,40 @@
-#include <stdlib.h>
 #include "../../src/includes/container.h"
-#include "displays/displays.h"
+#include "functional.h"
 
 using namespace std;
-
-void airplaneMenu(Container* c);
-void flightMenu(Container* c);
-void ticketMenu(Container* c);
 
 int main(){
 
     Container* container = Container::getContainer();
-    int opt = -1;
+    Container* container2 = Container::getContainer();
+    assert(container == container2);
 
-    while (opt != 3){
+    Airplane* a = container->createAirplane("modelo1", "empresa1", "123", "ze", "pedro", 5);
+    assert(a->getAirplaneIdentifier() == 0);
+    assert(a->getModel() == "modelo1");
+    assert(a->getManufacturer() == "empresa1");
+    assert(a->getRegistration() == "123");
+    assert(a->getPilot() == "ze");
+    assert(a->getCoPilot() == "pedro");
+    assert(a->getCapacity() == 5);
 
-        displayHomePage();
-        printf("Choose an option: ");
-        scanf("%d\n", &opt);
+    Flight* f = container->createFlight("123", "13:30", "01/01/2022", "Mirassol", "Ouro Preto");
+    assert(f->getFlightIdentifier() == 0);
+    assert(f->getIdAirplane() == 0);
+    assert(f->getAvailableSeats() == 5);
+    assert(f->getDate() == "01/01/2022");
+    assert(f->getTime() == "13:30");
+    assert(f->getOrigin() == "Mirassol");
+    assert(f->getDestiny() == "Ouro Preto");
 
-        switch (opt)
-        {
-        case 0:
-            airplaneMenu(container);
-            system("CLS");
-            break;
-        
-        case 1:
-            flightMenu(container);
-            system("CLS");
-            break;
-        
-        case 2:
-            ticketMenu(container);
-            system("CLS");
-            break;
-        
-        default:
-            system("CLS");
-            break;
-        }
-    }
+    Ticket* t = container->createTicket(0, "joao", "1", "13:30", "01/01/2022");
+    assert(t->getDate() == "01/01/2022");
+    assert(t->getIdFlight() == 0);
+    assert(t->getPassengerName() == "joao");
+    assert(t->getSeat() == "1");
+    assert(t->getTicketIdentifier() == 0);
+    assert(t->getTime() == "13:30");
 
     return 0;
 
-}
-
-void airplaneMenu(Container* c){
-    int opt = -1;
-
-    while (opt != 4){
-        displayAirplanePage();
-        printf("Choose an option: ");
-        scanf("%d\n", &opt);
-
-        switch (opt){
-            case 0: // create
-                displayCreateAirplane(c);
-                system("CLS");
-                opt = 4;
-                break;
-            
-            case 1: // remove
-                displayDeleteAirplane(c);
-                system("CLS");
-                opt = 4;
-                break;
-            
-            case 2: // view
-                displayShowAirplane(c);
-                system("CLS");
-                opt = 4;
-                break;
-            
-            case 3: // update
-                system("CLS");
-                opt = 4;
-                break;
-            
-            default:
-                system("CLS");
-                break;
-        }
-    }
-}
-
-void flightMenu(Container* c){
-    int opt = -1;
-
-    while (opt != 4){
-        displayFlightPage();
-        printf("Choose an option: ");
-        scanf("%d\n", &opt);
-
-        switch (opt){
-            case 0: // create
-                displayCreateFlight(c);
-                system("CLS");
-                opt = 4;
-                break;
-            
-            case 1: // remove
-                displayDeleteFlight(c);
-                system("CLS");
-                opt = 4;
-                break;
-            
-            case 2: // view
-                displayShowFlight(c);
-                system("CLS");
-                opt = 4;
-                break;
-            
-            case 3: // update
-                system("CLS");
-                opt = 4;
-                break;
-            
-            default:
-                system("CLS");
-                break;
-        }
-    }
-}
-
-void ticketMenu(Container* c){
-    int opt = -1;
-
-    while (opt != 4){
-        displayTicketPage();
-        printf("Choose an option: ");
-        scanf("%d\n", &opt);
-
-        switch (opt){
-            case 0: // create
-                displayCreateTicket(c);
-                system("CLS");
-                opt = 4;
-                break;
-            
-            case 1: // remove
-                displayDeleteTicket(c);
-                system("CLS");
-                opt = 4;
-                break;
-            
-            case 2: // view
-                displayShowTicket(c);
-                system("CLS");
-                opt = 4;
-                break;
-            
-            case 3: // update
-                system("CLS");
-                opt = 4;
-                break;
-            
-            default:
-                system("CLS");
-                break;
-        }
-    }
 }

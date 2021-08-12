@@ -49,7 +49,7 @@ Container::~Container(){
     }
 }
 
-Airplane* Container::createAirplane(string model="", string manufacturer="", string registration="", string pilot="", string coPilot="", int capacity=0){
+Airplane* Container::createAirplane(string model="", string manufacturer="", string registration="", string pilot="", string copilot="", int capacity=0){
     bool hasCopy = false;
 
     if (registration == ""){
@@ -70,7 +70,7 @@ Airplane* Container::createAirplane(string model="", string manufacturer="", str
         return NULL;
     }
     else{
-        Airplane* a = new AirplaneHandle(Container::countAirplanes, model, manufacturer, registration, pilot, coPilot, capacity);
+        Airplane* a = new AirplaneHandle(Container::countAirplanes, model, manufacturer, registration, pilot, copilot, capacity);
         airplanes.insert(pair<int, Airplane*>(Container::countAirplanes, a));
         Container::countAirplanes++;
         return a;
@@ -128,7 +128,7 @@ void Container::printAirplane(string registration=""){
         printf("Airplane manufacturer: %s\n", a->getManufacturer());
         printf("Airplane registration: %s\n", a->getRegistration());
         printf("Airplane pilot: %s\n", a->getPilot());
-        printf("Airplane copilot: %s\n", a->getCoPilot());
+        printf("Airplane copilot: %s\n", a->getCopilot());
         printf("Airplane capacity: %d\n\n", a->getCapacity());
         printf("Type enter to continue ...");
         getchar();
