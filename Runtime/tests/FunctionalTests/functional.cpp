@@ -15,7 +15,7 @@ int main(){
     assert(a->getManufacturer() == "empresa1");
     assert(a->getRegistration() == "123");
     assert(a->getPilot() == "ze");
-    assert(a->getCoPilot() == "pedro");
+    assert(a->getCopilot() == "pedro");
     assert(a->getCapacity() == 5);
 
     Flight* f = container->createFlight("123", "13:30", "01/01/2022", "Mirassol", "Ouro Preto");
