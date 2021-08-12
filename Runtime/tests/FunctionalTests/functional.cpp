@@ -68,6 +68,7 @@ void airplaneMenu(Container* c){
                 break;
             
             case 2: // view
+                displayShowAirplane(c);
                 system("CLS");
                 opt = 4;
                 break;
@@ -106,6 +107,7 @@ void flightMenu(Container* c){
                 break;
             
             case 2: // view
+                displayShowFlight(c);
                 system("CLS");
                 opt = 4;
                 break;
@@ -144,6 +146,7 @@ void ticketMenu(Container* c){
                 break;
             
             case 2: // view
+                displayShowTicket(c);
                 system("CLS");
                 opt = 4;
                 break;
