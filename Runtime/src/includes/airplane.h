@@ -13,7 +13,7 @@ class Airplane{
         ~Airplane();
 
         virtual int getAirplaneIdentifier() const = 0;
-        virtual void SetAirplaneIdentifier(int airplaneIdentifier) = 0;
+        virtual void setAirplaneIdentifier(int airplaneIdentifier) = 0;
 
 
         virtual string getModel() const = 0;

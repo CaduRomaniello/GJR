@@ -25,7 +25,7 @@ class AirplaneBody : public Airplane, public Body{
         virtual ~AirplaneBody();
 
         int getAirplaneIdentifier();
-        void SetAirplaneIdentifier(int airplaneIdentifier);
+        void setAirplaneIdentifier(int airplaneIdentifier);
 
         string getModel();
         void setModel(string model);
@@ -56,7 +56,7 @@ class AirplaneHandle : public Airplane, public Handle<AirplaneBody>{
 
     public:
         AirplaneHandle(int airplaneIdentifier = -1, string model="", string manufacturer="", string registration="", string pilot="", string copilot="", int capacity=0){
-            pImpl_->SetAirplaneIdentifier(airplaneIdentifier);
+            pImpl_->setAirplaneIdentifier(airplaneIdentifier);
             pImpl_->setModel(model);
             pImpl_->setModel(model);
             pImpl_->setManufacturer(manufacturer);
@@ -70,8 +70,8 @@ class AirplaneHandle : public Airplane, public Handle<AirplaneBody>{
         int getAirplaneIdentifier() const{
             return pImpl_->getAirplaneIdentifier();
         }
-        void SetAirplaneIdentifier(int airplaneIdentifier){
-            pImpl_->SetAirplaneIdentifier(airplaneIdentifier);
+        void setAirplaneIdentifier(int airplaneIdentifier){
+            pImpl_->setAirplaneIdentifier(airplaneIdentifier);
         }
 
 
