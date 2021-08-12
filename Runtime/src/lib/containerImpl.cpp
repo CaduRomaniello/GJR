@@ -76,7 +76,8 @@ Airplane* Container::createAirplane(string model="", string manufacturer="", str
         return a;
     }
 }
-void Container::removeAirplane(string registration=""){
+
+void Container::deleteAirplane(string registration=""){
     if (registration == ""){
         cout << "Impossible to delete airplane. Invalid registration!" << endl;
         return;
@@ -98,6 +99,39 @@ void Container::removeAirplane(string registration=""){
         itr = airplanes.find(key);
         delete(itr->second);
         airplanes.erase(itr);
+    }
+}
+
+void Container::printAirplane(string registration=""){
+    if (registration == ""){
+        cout << "Impossible to show airplane. Invalid registration!" << endl;
+        return;
+    }
+
+    int key = -1;
+    Container::airplaneIterator itr;
+    for (itr = beginAirplanes(); itr != endAirplanes(); ++itr){
+        if(itr->second->getRegistration() == registration){
+            key = itr->first;
+            break;
+        }
+    }  
+
+    if (key == -1){
+        cout << "Can't find airplane!" << endl;
+    }
+    else{
+        Airplane* a = airplanes.find(key)->second;
+
+        printf("Airplane identifier: %d\n", a->getAirplaneIdentifier());
+        printf("Airplane model: %s\n", a->getModel());
+        printf("Airplane manufacturer: %s\n", a->getManufacturer());
+        printf("Airplane registration: %s\n", a->getRegistration());
+        printf("Airplane pilot: %s\n", a->getPilot());
+        printf("Airplane copilot: %s\n", a->getCoPilot());
+        printf("Airplane capacity: %d\n\n", a->getCapacity());
+        printf("Type enter to continue ...");
+        getchar();
     }
 }
 
@@ -144,6 +178,7 @@ Flight* Container::createFlight(string registration = "", string time="", string
         return a;
     }
 }
+
 void Container::deleteFlight(int flightIdentifier = -1){
     if (flightIdentifier == -1){
         cout << "Impossible to delete flight. Invalid flight identifier!" << endl;
@@ -166,6 +201,39 @@ void Container::deleteFlight(int flightIdentifier = -1){
         itr = flights.find(flightIdentifier);
         delete(itr->second);
         flights.erase(itr);
+    }
+}
+
+void Container::printFlight(int flightIdentifier=-1){
+    if (flightIdentifier == -1){
+        cout << "Impossible to show flight. Invalid flight identifier!" << endl;
+        return;
+    }
+
+    bool findIt = false;
+    Container::flightIterator itr;
+    for (itr = beginFlights(); itr != endFlights(); ++itr){
+        if(itr->second->getFlightIdentifier() == flightIdentifier){
+            findIt = true;
+            break;
+        }
+    }  
+
+    if (!findIt){
+        cout << "Can't find flight!" << endl;
+    }
+    else{
+        Flight* f = flights.find(flightIdentifier)->second;
+
+        printf("Flight identifier     : %d\n", f->getFlightIdentifier());
+        printf("Flight time           : %s\n", f->getTime());
+        printf("Flight date           : %s\n", f->getDate());
+        printf("Flight airplane id    : %d\n", f->getIdAirplane());
+        printf("Flight origin         : %s\n", f->getOrigin());
+        printf("Flight destiny        : %s\n", f->getDestiny());
+        printf("Flight available seats: %d\n\n", f->getAvailableSeats());
+        printf("Type enter to continue ...");
+        getchar();
     }
 }
 
@@ -220,7 +288,8 @@ Ticket* Container::createTicket(int flightIdentifier = -1, string passengerName 
 
     }
 }
-void Container::deleteFlight(int ticketIdentifier=-1){
+
+void Container::deleteTicket(int ticketIdentifier=-1){
     if (ticketIdentifier == -1){
         cout << "Impossible to delete ticket. Invalid ticket identifier!" << endl;
         return;
@@ -242,5 +311,37 @@ void Container::deleteFlight(int ticketIdentifier=-1){
         itr = tickets.find(ticketIdentifier);
         delete(itr->second);
         tickets.erase(itr);
+    }
+}
+
+void Container::printTicket(int ticketIdentifier=-1){
+    if (ticketIdentifier == -1){
+        cout << "Impossible to show ticket. Invalid ticket identifier!" << endl;
+        return;
+    }
+
+    bool findIt = false;
+    Container::ticketIterator itr;
+    for (itr = beginTickets(); itr != endTickets(); ++itr){
+        if(itr->second->getTicketIdentifier() == ticketIdentifier){
+            findIt = true;
+            break;
+        }
+    }  
+
+    if (!findIt){
+        cout << "Can't find ticket!" << endl;
+    }
+    else{
+        Ticket* t = tickets.find(ticketIdentifier)->second;
+
+        printf("Ticket identifier      : %d\n", t->getTicketIdentifier());
+        printf("Ticket's flight id     : %d\n", t->getIdFlight());
+        printf("Ticket's passenger name: %s\n", t->getPassengerName());
+        printf("Ticket's seat          : %s\n", t->getSeat());
+        printf("Ticket's time          : %s\n", t->getTime());
+        printf("Ticket's date          : %s\n", t->getDate());
+        printf("Type enter to continue ...");
+        getchar();
     }
 }

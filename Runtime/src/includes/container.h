@@ -22,19 +22,22 @@ class Container{
         ticketIterator beginTickets();
         ticketIterator endTickets();
 
-        Container* getContainer();
+        static Container* getContainer();
 
         ~Container();
 
         // Factory
         Airplane* createAirplane(string model="", string manufacturer="", string registration="", string pilot="", string coPilot="", int capacity=0);
-        void removeAirplane(string registration="");
+        void deleteAirplane(string registration="");
+        void printAirplane(string registration="");
 
         Flight* createFlight(string registration = "", string time="", string date="", string origin="", string destiny="");
-        void deleteFlight(int flightIdentidfier=-1);
+        void deleteFlight(int flightIdentifier=-1);
+        void printFlight(int flightIdentifier=-1);
 
         Ticket* createTicket(int flightIdentifier = -1, string passengerName = "", string seat = "", string time = "", string date = "");
-        void deleteFlight(int ticketIdentifier=-1);
+        void deleteTicket(int ticketIdentifier=-1);
+        void printTicket(int ticketIdentifier=-1);
 
     private:
         static Container* container;
