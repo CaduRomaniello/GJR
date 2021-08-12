@@ -1,7 +1,9 @@
 #include "unit_container.h"
 #include <cassert>
 
-// This unit tests takes container implmented in a Handle/body and factor method architecture 
+// This unit tests takes container implmented in a Handle/body and factor method architecture.
+// TODO:
+// - Update architecture and complete the unit test.
 
 void unit_container_getContainer(){ // Not done yet
 
