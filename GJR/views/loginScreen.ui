@@ -147,6 +147,11 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>edit_user</tabstop>
+  <tabstop>edit_password</tabstop>
+  <tabstop>button_login</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
