@@ -4,10 +4,18 @@
 #include <string>
 #include <QMessageBox>
 
+static QSqlDatabase bdd = QSqlDatabase::addDatabase("QSQLITE");
+
 loginScreen::loginScreen(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::loginScreen)
 {
+    bdd.setDatabaseName("D:/Facul/eng_software_1/GJR/GJR/database/db_GJR.db");
+    if (!bdd.open()){
+        QMessageBox::information(this, "Erro", "Não foi possível abrir o banco de dados!", QMessageBox::Close);
+        exit(1);
+    }
+
     ui->setupUi(this);
     this->setFixedSize(800, 600);
 }
@@ -21,14 +29,25 @@ void loginScreen::loginUser() {
     QLineEdit* user = ui->edit_user;
     QLineEdit* password = ui->edit_password;
 
-    if(user->text() == "admin" && password->text() == "admin") {
-        user->clear();
-        password->clear();
+    QSqlQuery query;
 
-        this->close();
+    if(query.exec("select * from users where username='"+user->text()+"' and password='"+password->text()+"'")) {
+        int count = 0;
+        while(query.next()){
+            count++;
+        }
+        if (count > 0){
+            user->clear();
+            password->clear();
 
-        HomeScreen* home = new HomeScreen(this);
-        home->show();
+            this->close();
+
+            HomeScreen* home = new HomeScreen(this);
+            home->show();
+        }
+        else{
+            QMessageBox::information(this, "Login", "Login Incorrect", QMessageBox::Close);
+        }
     }
 
     else {

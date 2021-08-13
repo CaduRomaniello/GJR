@@ -4,6 +4,9 @@
 #include <QMainWindow>
 #include <iostream>
 #include <string>
+#include <QtSql>
+#include <QDebug>
+#include <QFileInfo>
 
 using namespace std;
 
