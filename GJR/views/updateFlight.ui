@@ -39,6 +39,178 @@
      <string>Cancel</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_field_available">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>140</y>
+      <width>171</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Number of available seates</string>
+    </property>
+   </widget>
+   <widget class="QTimeEdit" name="time_flight">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>160</y>
+      <width>118</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QDateEdit" name="date_flight">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>230</y>
+      <width>110</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_field_time">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>140</y>
+      <width>55</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Time</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_field_date">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>210</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Date</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_field_id_airplane">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>280</y>
+      <width>101</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Airplane ID</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spin_box_available_seats">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>160</y>
+      <width>91</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>900</number>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="line_edit_origin">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>230</y>
+      <width>301</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_field_origin">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>210</y>
+      <width>55</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Origin</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_field_destiny">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>280</y>
+      <width>55</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Destiny</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="combo_box_id_airplane">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>300</y>
+      <width>161</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="edit_label_destiny">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>300</y>
+      <width>301</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button_update">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>490</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Update</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>60</y>
+      <width>251</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Edit the desired fields</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -46,7 +218,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
