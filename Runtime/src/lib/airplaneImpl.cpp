@@ -1,14 +1,14 @@
 #include "../includes/airplaneImpl.h"
 
-AirplaneBody::AirplaneBody(string model, string manufacturer, string registration, string pilot, string coPilot, int capacity):model(model), manufacturer(manufacturer), registration(registration), pilot(pilot), coPilot(coPilot), capacity(capacity){}
+AirplaneBody::AirplaneBody(int id,string model, string manufacturer, string registration, string pilot, string copilot, int capacity):id(id), model(model), manufacturer(manufacturer), registration(registration), pilot(pilot), copilot(copilot), capacity(capacity){}
 AirplaneBody::~AirplaneBody(){}
 
 
-int AirplaneBody::getAirplaneIdentifier(){
-    return this->airplaneIdentifier;
+int AirplaneBody::getId(){
+    return this->id;
 }
-void AirplaneBody::SetAirplaneIdentifier(int airplaneIdentifier){
-    this->airplaneIdentifier = airplaneIdentifier;
+void AirplaneBody::setId(int id){
+    this->id = id;
 }
 
 
@@ -44,11 +44,11 @@ void AirplaneBody::setPilot(string pilot) {
 }
 
 
-string AirplaneBody::getCoPilot() {
-    return this->coPilot;
+string AirplaneBody::getCopilot() {
+    return this->copilot;
 }
-void AirplaneBody::setCoPilot(string coPilot) {
-    this->coPilot = coPilot;
+void AirplaneBody::setCopilot(string copilot) {
+    this->copilot = copilot;
 }
 
 

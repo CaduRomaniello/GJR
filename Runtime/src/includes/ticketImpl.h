@@ -6,19 +6,21 @@
 
 class TicketBody : public Body {
     protected:
-        int ticketIdentifier;
+        int id;
         int idFlight;
         string passengerName;
-        string seat;
+        int seat;
         string time;
         string date;
+        string origin;
+        string destiny;
 
     public:
-        TicketBody(int ticketIdentifier = -1, int idFlight = -1, string passengerName = "", string seat = "", string time = "", string date = "");
+        TicketBody(int id = -1, int idFlight = -1, string passengerName = "", int seat = -1, string time = "", string date = "", string origin = "", string destiny = "");
         virtual ~TicketBody();
 
-        void setTicketIdentifier(int ticketIdentifier);
-        int getTicketIdentifier() const;
+        void setId(int id);
+        int getId() const;
 
         void setIdFlight(int idFlight);
         int getIdFlight() const;
@@ -26,76 +28,99 @@ class TicketBody : public Body {
         void setPassengerName(string passengerName);
         string getPassengerName() const;
 
-        void setSeat(string seat);
-        string getSeat() const;
+        void setSeat(int seat);
+        int getSeat() const;
 
         void setTime(string time);
         string getTime() const;
 
         void setDate(string date);
         string getDate() const;
+
+        void setOrigin(string origin);
+        string getOrigin() const;
+
+        void setDestiny(string destiny);
+        string getDestiny() const;
 };
 
 class TicketHandle : public Ticket, public Handle<TicketBody> {
     public: 
-        TicketHandle(int ticketIdentifier = -1, int idFlight = -1, string passengerName = "", string seat = "", string time = "", string date = "") {
-            pImpl_->setTicketIdentifier(ticketIdentifier);
+        TicketHandle(int id = -1, int idFlight = -1, string passengerName = "", int seat = -1, string time = "", string date = "", string origin = "", string destiny = "") {
+            pImpl_->setId(id);
             pImpl_->setIdFlight(idFlight);
             pImpl_->setPassengerName(passengerName);
             pImpl_->setSeat(seat);
             pImpl_->setTime(time);
             pImpl_->setDate(date);
+            pImpl_->setOrigin(origin);
+            pImpl_->setDestiny(destiny);
         }
 
         virtual ~TicketHandle(){}
 
-        void setTicketIdentifier(int ticketIdentifier) {
-            pImpl_->setTicketIdentifier(ticketIdentifier);
+        void setId(int id) {
+            pImpl_->setId(id);
+        }
+        int getId() const {
+            return pImpl_->getId();
         }
 
-        int getTicketIdentifier() const {
-            return pImpl_->getTicketIdentifier();
-        }
 
         void setIdFlight(int idFlight) {
             pImpl_->setIdFlight(idFlight);
         }
-
         int getIdFlight() const{
             return pImpl_->getIdFlight();
         }
 
+
         void setPassengerName(string passengerName) {
             pImpl_->setPassengerName(passengerName);
         }
-
         string getPassengerName() const{
             return pImpl_->getPassengerName();
         }
 
-        void setSeat(string seat) {
+
+        void setSeat(int seat) {
             pImpl_->setSeat(seat);
         }
-
-        string getSeat() const {
+        int getSeat() const {
             return pImpl_->getSeat();
         }
+
 
         void setTime(string time) {
             pImpl_->setTime(time);
         }
-
         string getTime() const {
             return pImpl_->getTime();
         }
 
+
         void setDate(string date) {
             pImpl_->setDate(date);
         }
-
         string getDate() const {
             return pImpl_->getDate();
-    }
+        }
+
+
+        void setOrigin(string origin) {
+            pImpl_->setOrigin(origin);
+        }
+        string getOrigin() const {
+            return pImpl_->getOrigin();
+        }
+
+
+        void setDestiny(string destiny) {
+            pImpl_->setDestiny(destiny);
+        }
+        string getDestiny() const {
+            return pImpl_->getDestiny();
+        }
 };
 
 #endif

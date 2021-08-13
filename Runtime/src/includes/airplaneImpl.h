@@ -8,10 +8,10 @@
 
 using namespace std;
 
-class AirplaneBody : public Airplane, public Body{
+class AirplaneBody : public Body{
 
     protected:
-        int airplaneIdentifier;
+        int id;
         string model;
         string manufacturer;
         string registration;
@@ -21,11 +21,11 @@ class AirplaneBody : public Airplane, public Body{
 
     public:
 
-        AirplaneBody(string model="", string manufacturer="", string registration="", string pilot="", string copilot="", int capacity=0);
+        AirplaneBody(int id=-1, string model="", string manufacturer="", string registration="", string pilot="", string copilot="", int capacity=0);
         virtual ~AirplaneBody();
 
-        int getAirplaneIdentifier();
-        void setAirplaneIdentifier(int airplaneIdentifier);
+        int getId();
+        void setId(int id);
 
         string getModel();
         void setModel(string model);
@@ -55,8 +55,8 @@ class AirplaneBody : public Airplane, public Body{
 class AirplaneHandle : public Airplane, public Handle<AirplaneBody>{
 
     public:
-        AirplaneHandle(int airplaneIdentifier = -1, string model="", string manufacturer="", string registration="", string pilot="", string copilot="", int capacity=0){
-            pImpl_->setAirplaneIdentifier(airplaneIdentifier);
+        AirplaneHandle(int id = -1, string model="", string manufacturer="", string registration="", string pilot="", string copilot="", int capacity=0){
+            pImpl_->setId(id);
             pImpl_->setModel(model);
             pImpl_->setModel(model);
             pImpl_->setManufacturer(manufacturer);
@@ -67,11 +67,11 @@ class AirplaneHandle : public Airplane, public Handle<AirplaneBody>{
         }
         virtual ~AirplaneHandle(){};
 
-        int getAirplaneIdentifier() const{
-            return pImpl_->getAirplaneIdentifier();
+        int getId() const{
+            return pImpl_->getId();
         }
-        void setAirplaneIdentifier(int airplaneIdentifier){
-            pImpl_->setAirplaneIdentifier(airplaneIdentifier);
+        void setId(int airplaneIdentifier){
+            pImpl_->setId(airplaneIdentifier);
         }
 
 
