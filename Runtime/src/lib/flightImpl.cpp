@@ -1,13 +1,13 @@
 #include "../includes/flightImpl.h"
 
-FlightBody::FlightBody(int flightIdentifier, string time, string date, int idAirplane, string origin, string destiny, int availableSeats): flightIdentifier(flightIdentifier), time(time), date(date), idAirplane(idAirplane), origin(origin), destiny(destiny), availableSeats(availableSeats){}
+FlightBody::FlightBody(int id, string time, string date, int idAirplane, string origin, string destiny, int availableSeats): id(id), time(time), date(date), idAirplane(idAirplane), origin(origin), destiny(destiny), numberOfAvailableSeats(numberOfAvailableSeats){}
 FlightBody::~FlightBody(){}
 
-int FlightBody::getFlightIdentifier() {
-    return this->flightIdentifier;
+int FlightBody::getId() {
+    return this->id;
 }
-void FlightBody::setFlightIdentifier(int flightIdentifier) {
-    this->flightIdentifier = flightIdentifier;
+void FlightBody::setId(int id) {
+    this->id = id;
 }
 
 string FlightBody::getTime() {
@@ -50,9 +50,9 @@ void FlightBody::setDestiny(string destiny) {
 }
 
 
-int FlightBody::getAvailableSeats() {
-    return this->availableSeats;
+int FlightBody::getNumberOfAvailableSeats() {
+    return this->numberOfAvailableSeats;
 }
-void FlightBody::setAvailableSeats(int availableSeats) {
-    this->availableSeats = availableSeats;
+void FlightBody::setNumberOfAvailableSeats(int numberOfAvailableSeats) {
+    this->numberOfAvailableSeats = numberOfAvailableSeats;
 }

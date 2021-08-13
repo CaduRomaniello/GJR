@@ -8,13 +8,13 @@ void unit_flight_constructor(){
     Flight* flight1 = new FlightHandle();
 
     // Making assertion to verify if all properties were initialized with the default data.
-    assert(flight1->getFlightIdentifier() == -1);
+    assert(flight1->getId() == -1);
     assert(flight1->getTime() == "");
     assert(flight1->getDate() == "");
     assert(flight1->getIdAirplane() == -1);
     assert(flight1->getOrigin() == "");
     assert(flight1->getDestiny() == "");
-    assert(flight1->getAvailableSeats() == 0);
+    assert(flight1->getNumberOfAvailableSeats() == 0);
 
     delete flight1;
 
@@ -24,13 +24,13 @@ void unit_flight_constructor(){
     Flight* flight2 = new FlightHandle(1, "23:30", "11/08/2021", 1, "Belo Horizonte", "São Paulo", 327);
 
     // Making assertion to verify if all properties were initialized with the parameter specified.
-    assert(flight2->getFlightIdentifier() == 1);
+    assert(flight2->getId() == 1);
     assert(flight2->getTime() == "23:30");
     assert(flight2->getDate() == "11/08/2021");
     assert(flight2->getIdAirplane() == 1);
     assert(flight2->getOrigin() == "Belo Horizonte");
     assert(flight2->getDestiny() == "São Paulo");
-    assert(flight2->getAvailableSeats() == 327);
+    assert(flight2->getNumberOfAvailableSeats() == 327);
 
     delete flight2;
     
@@ -46,9 +46,9 @@ void unit_flight_setFlightIdentifier(){
     Flight* flight = new FlightHandle();
 
     // Make assertion to verify identifier
-    assert(flight->getFlightIdentifier() == -1);
-    flight->setFlightIdentifier(2);
-    assert(flight->getFlightIdentifier() == 2);
+    assert(flight->getId() == -1);
+    flight->setId(2);
+    assert(flight->getId() == 2);
 
     delete flight;
     cout << " - [" << "OK!" << "]" << endl;
@@ -61,7 +61,7 @@ void unit_flight_getFlightIdentifier(){
     Flight* flight = new FlightHandle();
 
     // Make assertion to verify identifier
-    assert(flight->getFlightIdentifier() == -1);
+    assert(flight->getId() == -1);
 
     delete flight;
     cout << " - [" << "OK!" << "]" << endl;
@@ -220,9 +220,9 @@ void unit_flight_setAvailableSeats(){
     Flight* flight = new FlightHandle();
 
     // Make assertion to verify available seats
-    assert(flight->getAvailableSeats() == 0);
-    flight->setAvailableSeats(327);
-    assert(flight->getAvailableSeats() == 327);
+    assert(flight->getNumberOfAvailableSeats() == 0);
+    flight->setNumberOfAvailableSeats(327);
+    assert(flight->getNumberOfAvailableSeats() == 327);
 
     delete flight;
     cout << " - [" << "OK!" << "]" << endl;
@@ -235,7 +235,7 @@ void unit_flight_getAvailableSeats(){
     Flight* flight = new FlightHandle();
 
     // Make assertion to verify available seats
-    assert(flight->getAvailableSeats() == 0);
+    assert(flight->getNumberOfAvailableSeats() == 0);
 
     delete flight;
     cout << " - [" << "OK!" << "]" << endl;

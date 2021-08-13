@@ -10,10 +10,10 @@ class Airplane{
 
     public:
 
-        ~Airplane();
+        virtual ~Airplane(){}
 
-        virtual int getAirplaneIdentifier() const = 0;
-        virtual void setAirplaneIdentifier(int airplaneIdentifier) = 0;
+        virtual int getId() const = 0;
+        virtual void setId(int id) = 0;
 
 
         virtual string getModel() const = 0;

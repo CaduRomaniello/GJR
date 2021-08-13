@@ -10,10 +10,11 @@ class Flight{
 
     public:
 
-        ~Flight();
+        virtual ~Flight(){}
 
-        virtual int getFlightIdentifier() const = 0;
-        virtual void setFlightIdentifier(int flightIdentifier) = 0;
+        virtual int getId() const = 0;
+        virtual void setId(int flightIdentifier) = 0;
+
 
         virtual string getTime() const = 0;
         virtual void setTime(string time) = 0;
@@ -35,8 +36,8 @@ class Flight{
         virtual void setDestiny(string destiny) = 0;
 
 
-        virtual int getAvailableSeats() const = 0;
-        virtual void setAvailableSeats(int availableSeats) = 0;
+        virtual int getNumberOfAvailableSeats() const = 0;
+        virtual void setNumberOfAvailableSeats(int availableSeats) = 0;
 
 };
 

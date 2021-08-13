@@ -8,24 +8,24 @@
 
 using namespace std;
 
-class FlightBody : public Flight, public Body{
+class FlightBody : public Body{
 
     protected:
-        int flightIdentifier;
+        int id;
         string time;
         string date;
         int idAirplane;
         string origin;
         string destiny;
-        int availableSeats;
+        int numberOfAvailableSeats;
 
     public:
 
-        FlightBody(int flightIdentifier = -1, string time="", string date="", int idAirplane=-1, string origin="", string destiny="", int availableSeats=0);
+        FlightBody(int id = -1, string time="", string date="", int idAirplane=-1, string origin="", string destiny="", int numberOfAvailableSeats=0);
         virtual ~FlightBody();
 
-        int getFlightIdentifier();
-        void setFlightIdentifier(int flightIdentifier);
+        int getId();
+        void setId(int flightIdentifier);
 
         string getTime();
         void setTime(string time);
@@ -47,30 +47,30 @@ class FlightBody : public Flight, public Body{
         void setDestiny(string destiny);
 
 
-        int getAvailableSeats();
-        void setAvailableSeats(int availableSeats);
+        int getNumberOfAvailableSeats();
+        void setNumberOfAvailableSeats(int NmberOfAvailableSeats);
 
 };
 
 class FlightHandle : public Handle<FlightBody>, public Flight{
 
     public:
-        FlightHandle(int flightIdentifier=-1, string time="", string date="", int idAirplane=-1, string origin="", string destiny="", int availableSeats=0){
-            pImpl_->setFlightIdentifier(flightIdentifier);
+        FlightHandle(int id=-1, string time="", string date="", int idAirplane=-1, string origin="", string destiny="", int numberOfAvailableSeats=0){
+            pImpl_->setId(id);
             pImpl_->setTime(time);
             pImpl_->setDate(date);
             pImpl_->setIdAirplane(idAirplane);
             pImpl_->setOrigin(origin);
             pImpl_->setDestiny(destiny);
-            pImpl_->setAvailableSeats(availableSeats);
+            pImpl_->setNumberOfAvailableSeats(numberOfAvailableSeats);
         }
         virtual ~FlightHandle(){};
 
-        int getFlightIdentifier() const {
-            return pImpl_->getFlightIdentifier();
+        int getId() const {
+            return pImpl_->getId();
         }
-        void setFlightIdentifier(int flightIdentifier){
-            pImpl_->setFlightIdentifier(flightIdentifier);
+        void setId(int id){
+            pImpl_->setId(id);
         }
 
         string getTime() const {
@@ -113,11 +113,11 @@ class FlightHandle : public Handle<FlightBody>, public Flight{
         }
 
 
-        int getAvailableSeats() const {
-            return pImpl_->getAvailableSeats();
+        int getNumberOfAvailableSeats() const {
+            return pImpl_->getNumberOfAvailableSeats();
         }
-        void setAvailableSeats(int availableSeats){
-            pImpl_->setAvailableSeats(availableSeats);
+        void setNumberOfAvailableSeats(int availableSeats){
+            pImpl_->setNumberOfAvailableSeats(availableSeats);
         }
 
 };

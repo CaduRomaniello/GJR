@@ -8,10 +8,10 @@ void unit_ticket_constructor(){
     Ticket* ticket1 = new TicketHandle();
 
     // Making assertion to verify if all properties were initialized with the default data.
-    assert(ticket1->getTicketIdentifier() == -1);
+    assert(ticket1->getId() == -1);
     assert(ticket1->getIdFlight() == -1);
     assert(ticket1->getPassengerName() == "");
-    assert(ticket1->getSeat() == "");
+    assert(ticket1->getSeat() == -1);
     assert(ticket1->getTime() == "");
     assert(ticket1->getDate() == "");
 
@@ -20,13 +20,13 @@ void unit_ticket_constructor(){
     cout << " - [" << "OK!" << "]" << endl;
     cout << "TEST  2 - Ticket constructor test";
     
-    Ticket* ticket2 = new TicketHandle(1, 1, "Test Passenger", "2A", "23:30", "12/08/2021");
+    Ticket* ticket2 = new TicketHandle(1, 1, "Test Passenger", 2, "23:30", "12/08/2021");
 
     // Making assertion to verify if all properties were initialized with the parameter specified.
-    assert(ticket2->getTicketIdentifier() == 1);
+    assert(ticket2->getId() == 1);
     assert(ticket2->getIdFlight() == 1);
     assert(ticket2->getPassengerName() == "Test Passenger");
-    assert(ticket2->getSeat() == "2A");
+    assert(ticket2->getSeat() == 2);
     assert(ticket2->getTime() == "23:30");
     assert(ticket2->getDate() == "12/08/2021");
    
@@ -44,9 +44,9 @@ void unit_ticket_setTicketIdentifier(){
     Ticket* ticket = new TicketHandle();
 
     // Make assertion to verify identifier
-    assert(ticket->getTicketIdentifier() == -1);
-    ticket->setTicketIdentifier(2);
-    assert(ticket->getTicketIdentifier() == 2);
+    assert(ticket->getId() == -1);
+    ticket->setId(2);
+    assert(ticket->getId() == 2);
 
     delete ticket;
     cout << " - [" << "OK!" << "]" << endl;
@@ -59,7 +59,7 @@ void unit_ticket_getTicketIdentifier(){
     Ticket* ticket = new TicketHandle();
 
     // Make assertion to verify identifier
-    assert(ticket->getTicketIdentifier() == -1);
+    assert(ticket->getId() == -1);
 
     delete ticket;
     cout << " - [" << "OK!" << "]" << endl;
@@ -128,9 +128,9 @@ void unit_ticket_setSeat(){
     Ticket* ticket = new TicketHandle();
 
     // Make assertion to verify seat
-    assert(ticket->getSeat() == "");
-    ticket->setSeat("2A");
-    assert(ticket->getSeat() == "2A");
+    assert(ticket->getSeat() == -1);
+    ticket->setSeat(2);
+    assert(ticket->getSeat() == 2);
 
     delete ticket;
     cout << " - [" << "OK!" << "]" << endl;
@@ -143,7 +143,7 @@ void unit_ticket_getSeat(){
     Ticket* ticket = new TicketHandle();
 
     // Make assertion to verify seat
-    assert(ticket->getSeat() == "");
+    assert(ticket->getSeat() == -1);
 
     delete ticket;
     cout << " - [" << "OK!" << "]" << endl;

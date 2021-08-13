@@ -5,9 +5,9 @@
 #include <string>
 #include <map>
 
-#include "airplaneImpl.h"
-#include "flightImpl.h"
-#include "ticketImpl.h"
+#include "airplane.h"
+#include "flight.h"
+#include "ticket.h"
 // #include "airplane.h" -> CORRETO
 // #include "flight.h"   -> CORRETO
 // #include "ticket.h"   -> CORRETO
@@ -19,43 +19,32 @@ class Container{
         typedef map<int, Flight*>::iterator flightIterator;
         typedef map<int, Ticket*>::iterator ticketIterator;
 
-        airplaneIterator beginAirplanes();
-        airplaneIterator endAirplanes();
-        flightIterator beginFlights();
-        flightIterator endFlights();
-        ticketIterator beginTickets();
-        ticketIterator endTickets();
+        virtual airplaneIterator beginAirplanes() = 0;
+        virtual airplaneIterator endAirplanes() = 0;
+        virtual flightIterator beginFlights() = 0;
+        virtual flightIterator endFlights() = 0;
+        virtual ticketIterator beginTickets() = 0;
+        virtual ticketIterator endTickets() = 0;
 
         static Container* getContainer();
 
-        ~Container();
+        virtual ~Container(){}
 
         // Factory
-        Airplane* createAirplane(string model="", string manufacturer="", string registration="", string pilot="", string coPilot="", int capacity=0);
-        void deleteAirplane(string registration="");
-        void printAirplane(string registration="");
+        virtual Airplane* createAirplane(string model="", string manufacturer="", string registration="", string pilot="", string copilot="", int capacity=0) = 0;
+        virtual void deleteAirplane(string registration="") = 0;
+        virtual Airplane* readAirplane(string registration="") = 0;
+        virtual void updateAirplane(string model="", string manufacturer="", string registration="", string pilot="", string copilot="") = 0;
 
-        Flight* createFlight(string registration = "", string time="", string date="", string origin="", string destiny="");
-        void deleteFlight(int flightIdentifier=-1);
-        void printFlight(int flightIdentifier=-1);
+        virtual Flight* createFlight(string registration = "", string time="", string date="", string origin="", string destiny="") = 0;
+        virtual void deleteFlight(int id=-1) = 0;
+        virtual Flight* readFlight(int id=-1) = 0;
+        virtual void updateFlight(int id=-1, string time="", string date="", string origin="", string destiny="") = 0;
 
-        Ticket* createTicket(int flightIdentifier = -1, string passengerName = "", string seat = "", string time = "", string date = "");
-        void deleteTicket(int ticketIdentifier=-1);
-        void printTicket(int ticketIdentifier=-1);
-
-    private:
-        static Container* container;
-
-        Container();
-
-        static int countAirplanes;
-        static int countFlights;
-        static int countTickets;
-
-        map<int, Airplane*> airplanes;
-        map<int, Flight*> flights;
-        map<int, Ticket*> tickets;
-
+        virtual Ticket* createTicket(int idFlight = -1, string passengerName = "", int seat = -1) = 0;
+        virtual void deleteTicket(int id=-1) = 0;
+        virtual Ticket* readTicket(int id=-1) = 0;
+        virtual void updateTicket(int id=-1, string passengerName = "", int seat = -1) = 0;
 };
 
 #endif
