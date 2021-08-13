@@ -1,8 +1,6 @@
 #include "homeScreen.h"
 #include "ui_homeScreen.h"
-#include "manageFlight.h"
-#include "manageAirplane.h"
-#include "manageTicket.h"
+#include <QMessageBox>
 
 HomeScreen::HomeScreen(QWidget *parent) :
     QMainWindow(parent),
@@ -16,11 +14,6 @@ HomeScreen::HomeScreen(QWidget *parent) :
     tableFlight->setEditTriggers(QAbstractItemView::NoEditTriggers);
     tableFlight->setSelectionBehavior(QAbstractItemView::SelectRows);
     tableFlight->setStyleSheet("QTableView {selection-background-color: gray}");
-//    tableFlight->insertRow(0);
-//    tableFlight->setItem(0, 0, new QTableWidgetItem("Teste"));
-//    tableFlight->setItem(0, 1, new QTableWidgetItem("Teste"));
-//    tableFlight->setItem(0, 2, new QTableWidgetItem("Teste"));
-//    tableFlight->setItem(0, 3, new QTableWidgetItem("Teste"));
 }
 
 HomeScreen::~HomeScreen()
@@ -50,4 +43,46 @@ void HomeScreen::on_button_manage_ticket_clicked()
     manageTicket->show();
 }
 
+
+
+void HomeScreen::on_button_edit_flight_clicked()
+{
+    QTableWidget* table = ui->table_flight;
+
+    if(table->currentItem() != 0) {
+        int currentRow = table->currentRow();
+        QTableWidgetItem* flightId = table->item(currentRow, 0);
+        int id = flightId->text().toInt();
+
+        this->hide();
+        UpdateFlight* updateFlight = new UpdateFlight(this, id);
+        updateFlight->show();
+    }
+
+    else {
+        QMessageBox::information(this, "Error", "Invalid selected item", QMessageBox::Close);
+    }
+}
+
+
+void HomeScreen::on_button_delete_flight_clicked()
+{
+    QTableWidget* table = ui->table_flight;
+
+    if(table->currentItem() != 0) {
+
+        QMessageBox::StandardButton teste = QMessageBox::information(this, "Alert", "Are you ready??", QMessageBox::Ok, QMessageBox::Cancel);
+
+        if(teste == 1024) {
+            int currentRow = table->currentRow();
+            QTableWidgetItem* flightId = table->item(currentRow, 0);
+            int id = flightId->text().toInt();
+            cout << id << endl;
+        }
+    }
+
+    else {
+        QMessageBox::information(this, "Error", "Invalid selected item", QMessageBox::Close);
+    }
+}
 
