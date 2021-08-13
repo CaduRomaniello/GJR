@@ -9,13 +9,18 @@ HomeScreen::HomeScreen(QWidget *parent) :
     ui(new Ui::HomeScreen)
 {
     ui->setupUi(this);
+    this->setFixedSize(800, 600);
+
     QTableWidget* tableFlight = ui->table_flight;
     tableFlight->setColumnCount(4);
-    tableFlight->insertRow(0);
-    tableFlight->setItem(0, 0, new QTableWidgetItem("Teste"));
-    tableFlight->setItem(0, 1, new QTableWidgetItem("Teste"));
-    tableFlight->setItem(0, 2, new QTableWidgetItem("Teste"));
-    tableFlight->setItem(0, 3, new QTableWidgetItem("Teste"));
+    tableFlight->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    tableFlight->setSelectionBehavior(QAbstractItemView::SelectRows);
+    tableFlight->setStyleSheet("QTableView {selection-background-color: gray}");
+//    tableFlight->insertRow(0);
+//    tableFlight->setItem(0, 0, new QTableWidgetItem("Teste"));
+//    tableFlight->setItem(0, 1, new QTableWidgetItem("Teste"));
+//    tableFlight->setItem(0, 2, new QTableWidgetItem("Teste"));
+//    tableFlight->setItem(0, 3, new QTableWidgetItem("Teste"));
 }
 
 HomeScreen::~HomeScreen()
@@ -44,4 +49,5 @@ void HomeScreen::on_button_manage_ticket_clicked()
     ManageTicket* manageTicket = new ManageTicket(this);
     manageTicket->show();
 }
+
 

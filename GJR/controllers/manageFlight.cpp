@@ -5,8 +5,9 @@ ManageFlight::ManageFlight(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::ManageFlight)
 {
-    this->parent = parent;
     ui->setupUi(this);
+    this->parent = parent;
+    this->setFixedSize(800, 600);
 }
 
 ManageFlight::~ManageFlight()

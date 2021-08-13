@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <iostream>
+#include <QTableWidgetItem>
 
 namespace Ui {
 class HomeScreen;

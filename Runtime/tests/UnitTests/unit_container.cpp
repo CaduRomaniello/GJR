@@ -18,7 +18,6 @@ void unit_container_getContainer(){ // Not done yet
     cout << "- [" << "OK!" << "]" << endl;
 
 }
-void unit_container_destructor(){}
 
 void unit_container_createAirplane(){
     
@@ -120,7 +119,6 @@ void unit_container_deleteTicket(){
 void run_unit_tests_container(){
 
     unit_container_getContainer();
-    unit_container_destructor();
     unit_container_createAirplane();
     unit_container_deleteAirplane();
     unit_container_readFlight();

@@ -29,7 +29,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Select a option</string>
+     <string>Select an option</string>
     </property>
    </widget>
    <widget class="QWidget" name="verticalLayoutWidget">
@@ -150,7 +150,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

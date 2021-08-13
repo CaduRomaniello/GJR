@@ -9,6 +9,7 @@ loginScreen::loginScreen(QWidget *parent)
     , ui(new Ui::loginScreen)
 {
     ui->setupUi(this);
+    this->setFixedSize(800, 600);
 }
 
 loginScreen::~loginScreen()

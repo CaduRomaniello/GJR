@@ -6,6 +6,7 @@ ManageTicket::ManageTicket(QWidget *parent) :
     ui(new Ui::ManageTicket)
 {
     ui->setupUi(this);
+    this->setFixedSize(800, 600);
     this->parent = parent;
 }
 
