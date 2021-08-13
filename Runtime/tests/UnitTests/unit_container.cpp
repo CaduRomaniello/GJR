@@ -30,8 +30,8 @@ void unit_container_createAirplane(){
     Airplane* airplane_inMap = container->getAirplane("PP-ETY");
 
     // Making assertion to verify if an airplane was created.
-    assert(airplane->getAirplaneIdentifier() == 1);
-    assert(airplane_inMap->getAirplaneIdentifier() == 1);
+    assert(airplane->getAirplaneIdentifier() == 0);
+    assert(airplane_inMap->getAirplaneIdentifier() == 0);
     assert(airplane == airplane_inMap);
 
     delete container;
@@ -61,11 +61,11 @@ void unit_container_createFlight(){
     Container* container = Container::createContainer();
     Airplane* airplane   = container->createAirplane("Boeing", "Boeing", "PP-ETY");
     Flight* flight       = container->createFlight("PP-ETY");
-    Flight* flight_inMap = container->getFlight(1);
+    Flight* flight_inMap = container->getFlight(0);
 
     // Making assertion to verify if a airplane was created.
-    assert(flight->getFlightIdentifier() == 1);
-    assert(flight_inMap->getFlightIdentifier() == 1);
+    assert(flight->getFlightIdentifier() == 0);
+    assert(flight_inMap->getFlightIdentifier() == 0);
     assert(flight == flight_inMap);
 
     delete container;
@@ -96,12 +96,12 @@ void unit_container_createTicket(){
     Container* container = Container::createContainer();
     Airplane* airplane   = container->createAirplane("Boeing", "Boeing", "PP-ETY");
     Flight* flight       = container->createFlight("PP-ETY");
-    Ticket* ticket       = container->createTicket(1);
-    Ticket* ticket_inMap = container->getTicket(1);
+    Ticket* ticket       = container->createTicket(2);
+    Ticket* ticket_inMap = container->getTicket(0);
 
     // Making assertion to verify if a ticket was created.
-    assert(ticket->getTicketIdentifier() == 1);
-    assert(ticket_inMap->getTicketIdentifier() == 1);
+    assert(ticket->getTicketIdentifier() == 0);
+    assert(ticket_inMap->getTicketIdentifier() == 0);
     assert(ticket == ticket_inMap);
 
     delete container;
@@ -115,7 +115,7 @@ void unit_container_deleteTicket(){
     Container* container = Container::createContainer();
     Airplane* airplane   = container->createAirplane("Boeing", "Boeing", "PP-ETY");
     Flight* flight       = container->createFlight("PP-ETY");
-    Ticket* ticket       = container->createTicket(1);
+    Ticket* ticket       = container->createTicket(3);
 
     // Making assertion to verify if a ticket was created and then deleted.
     assert(ticket->getTicketIdentifier() == 1);
