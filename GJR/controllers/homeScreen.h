@@ -4,6 +4,10 @@
 #include <QMainWindow>
 #include <iostream>
 #include <QTableWidgetItem>
+#include "manageFlight.h"
+#include "manageAirplane.h"
+#include "manageTicket.h"
+#include "updateFlight.h"
 
 namespace Ui {
 class HomeScreen;
@@ -25,6 +29,10 @@ private slots:
     void on_button_manager_airplane_clicked();
 
     void on_button_manage_ticket_clicked();
+
+    void on_button_edit_flight_clicked();
+
+    void on_button_delete_flight_clicked();
 
 private:
     Ui::HomeScreen *ui;

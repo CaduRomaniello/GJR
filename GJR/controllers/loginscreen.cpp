@@ -1,5 +1,5 @@
 #include "loginScreen.h"
-#include "ui_loginscreen.h"
+#include "ui_loginScreen.h"
 #include "homeScreen.h"
 #include <string>
 #include <QMessageBox>
