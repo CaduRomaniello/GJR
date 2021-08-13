@@ -20,10 +20,6 @@ int main(){
 
     cout << "\n========== Unit test for Ticket Class ===========\n" << endl;
     run_unit_tests_ticket();
-
-    cout << numBodyCreated << " - " << numBodyDeleted << endl;
-    cout << numHandleCreated << " - " << numHandleDeleted << endl;
-
     assert(numBodyCreated == numBodyDeleted);
     assert(numHandleCreated == numHandleDeleted);
 

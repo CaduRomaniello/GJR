@@ -7,6 +7,7 @@ CreateFlight::CreateFlight(QWidget *parent) :
 {
     ui->setupUi(this);
     this->parent = parent;
+    this->setFixedSize(800, 600);
 }
 
 CreateFlight::~CreateFlight()
