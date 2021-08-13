@@ -9,7 +9,7 @@ void unit_airplane_constructor(){
     Airplane* airplane1 = new AirplaneHandle();
 
     // Making assertion to verify if all properties were initialized with the default data.
-    assert(airplane1->getAirplaneIdentifier() == -1);
+    assert(airplane1->getId() == -1);
     assert(airplane1->getModel() == "");
     assert(airplane1->getManufacturer() == "");
     assert(airplane1->getRegistration() == "");
@@ -25,7 +25,7 @@ void unit_airplane_constructor(){
     Airplane* airplane2 = new AirplaneHandle(1, "Test Airplane", "Test Manufacturer", "PP-ETY", "Test Pilot", "Test Copilot", 327);
 
     // Making assertion to verify if all properties were initialized with the parameter specified.
-    assert(airplane2->getAirplaneIdentifier() == 1);
+    assert(airplane2->getId() == 1);
     assert(airplane2->getModel() == "Test Airplane");
     assert(airplane2->getManufacturer() == "Test Manufacturer");
     assert(airplane2->getRegistration() == "PP-ETY");
@@ -47,9 +47,9 @@ void unit_airplane_setAirplaneIdentifier(){
     Airplane* airplane = new AirplaneHandle();
 
     // Make assertion to verify identifier
-    assert(airplane->getAirplaneIdentifier() == -1);
-    airplane->setAirplaneIdentifier(2);
-    assert(airplane->getAirplaneIdentifier() == 2);
+    assert(airplane->getId() == -1);
+    airplane->setId(2);
+    assert(airplane->getId() == 2);
 
     delete airplane;
     cout << " - [" << "OK!" << "]" << endl;
@@ -62,7 +62,7 @@ void unit_airplane_getAirplaneIdentifier(){
     Airplane* airplane = new AirplaneHandle();
 
     // Make assertion to verify identifier
-    assert(airplane->getAirplaneIdentifier() == -1);
+    assert(airplane->getId() == -1);
 
     delete airplane;
     cout << " - [" << "OK!" << "]" << endl;
