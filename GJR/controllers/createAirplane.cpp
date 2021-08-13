@@ -24,19 +24,22 @@ void CreateAirplane::on_button_cancel_clicked()
 
 void CreateAirplane::on_button_create_clicked()
 {
-    string model = ui->edit_field_model->text().toStdString();
-    string manufacturer = ui->edit_field_manufacturer->text().toStdString();
-    string registration = ui->edit_field_registration->text().toStdString();
-    string pilot = ui->edit_field_copilot->text().toStdString();
-    string copilot = ui->edit_field_copilot->text().toStdString();
-    int capacity = ui->spin_box_capacity->text().toInt();
+    QString model = ui->edit_field_model->text();
+    QString manufacturer = ui->edit_field_manufacturer->text();
+    QString registration = ui->edit_field_registration->text();
+    QString pilot = ui->edit_field_copilot->text();
+    QString copilot = ui->edit_field_copilot->text();
+    QString capacity = ui->spin_box_capacity->text();
 
-    cout << model << endl;
-    cout << manufacturer << endl;
-    cout << registration << endl;
-    cout << pilot << endl;
-    cout << copilot << endl;
-    cout << capacity << endl;
+    QSqlQuery query;
+    query.exec("insert into airplane (model, manufacturer, registration, pilot, copilot, capacity) values ('"+model+"','"+manufacturer+"','"+registration+"','"+pilot+"','"+copilot+"',"+capacity+")");
+
+    //cout << model << endl;
+    //cout << manufacturer << endl;
+    //cout << registration << endl;
+    //cout << pilot << endl;
+    //cout << copilot << endl;
+    //cout << capacity << endl;
 
     this->parent->show();
     this->close();
