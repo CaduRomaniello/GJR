@@ -2,7 +2,7 @@ api:
 	g++ -shared ./src/lib/airplaneImpl.cpp ./src/lib/flightImpl.cpp ./src/lib/ticketImpl.cpp ./src/lib/containerImpl.cpp -o ./bin/libapi.so -L./bin -fpic -Wl,-rpath,bin
 
 test_func:
-	g++ ./tests/FuncionalTests/*.cpp -L./bin -lapi -o ./bin/funcional_tests -Wl,-rpath,bin
+	g++ ./tests/FunctionalTests/*.cpp -L./bin -lapi -o ./bin/funcional_tests -Wl,-rpath,bin
 
 test_unit:
 	g++ ./tests/UnitTests/*.cpp -L./bin -lapi -o ./bin/unit_tests -Wl,-rpath,bin
