@@ -1,0 +1,34 @@
+name: CI GJR
+
+on:
+  push:
+    branches: [main, tests, display]
+  pull_request:
+    branches: [main, tests, display]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build .so
+        run: |
+          make clean
+          make api
+          make test_func
+          make test_unit
+
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run unit and functional tests
+        run: |
+          make run_unit
+          make run_func
