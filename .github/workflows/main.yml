@@ -9,20 +9,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Build .so
-        run: |
-          cd Runtime
-          make clean
-          make api
-          make test_func
-          make test_unit
-
   tests:
     runs-on: ubuntu-latest
 
@@ -32,5 +18,13 @@ jobs:
       - name: Run unit and functional tests
         run: |
           cd Runtime
+          make clean
+          make api
+          make test_func
+          make test_unit
+          cd ./bin
+          chmod +x funcional_tests
+          chmod +x unit_tests
+          cd ../
           make run_unit
           make run_func
