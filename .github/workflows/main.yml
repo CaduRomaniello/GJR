@@ -17,6 +17,7 @@ jobs:
 
       - name: Build .so
         run: |
+          cd Runtime
           make clean
           make api
           make test_func
@@ -30,5 +31,6 @@ jobs:
 
       - name: Run unit and functional tests
         run: |
+          cd Runtime
           make run_unit
           make run_func
