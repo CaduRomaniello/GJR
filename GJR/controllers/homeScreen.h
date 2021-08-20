@@ -6,7 +6,8 @@
 #include <QTableWidgetItem>
 #include "manageFlight.h"
 #include "manageAirplane.h"
-#include "manageTicket.h"
+#include "readTicket.h"
+#include "createTicket.h"
 #include "updateFlight.h"
 
 namespace Ui {

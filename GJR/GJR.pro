@@ -28,8 +28,7 @@ SOURCES += \
     main.cpp \
     controllers/homeScreen.cpp \
     controllers/manageFlight.cpp \
-    controllers/manageAirplane.cpp \
-    controllers/manageTicket.cpp
+    controllers/manageAirplane.cpp
 
 HEADERS += \
     controllers/createAirplane.h \
@@ -40,7 +39,6 @@ HEADERS += \
     controllers/homeScreen.h \
     controllers/manageFlight.h \
     controllers/manageAirplane.h \
-    controllers/manageTicket.h \
     controllers/readAirplane.h \
     controllers/readFlight.h \
     controllers/readTicket.h \
@@ -62,8 +60,7 @@ FORMS += \
     views/homeScreen.ui \
     views/loginScreen.ui \
     views/manageAirplane.ui \
-    views/manageFlight.ui \
-    views/manageTicket.ui
+    views/manageFlight.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

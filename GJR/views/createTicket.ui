@@ -222,7 +222,7 @@
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>588</x>
+      <x>510</x>
       <y>450</y>
       <width>251</width>
       <height>80</height>

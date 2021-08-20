@@ -22,11 +22,19 @@ void CreateUser::on_button_create_user_clicked()
 
     if(user != "") {
         if(password == confirm) {
+            QMessageBox::information(this, "Successfully created", "You need to log in to your account.", QMessageBox::Ok);
+            QSqlQuery query;
+
             // É necessario adicionar no banco de dados
             // Seria daora pedir a senha do admin
-            HomeScreen* home = new HomeScreen(this);
+            query.prepare("insert into users (username, password) values (?, ?)");
+            query.addBindValue(user);
+            query.addBindValue(password);
+            query.exec();
+
+            loginScreen* login = new loginScreen(this);
             this->close();
-            home->show();
+            login->show();
         }
 
         else {
