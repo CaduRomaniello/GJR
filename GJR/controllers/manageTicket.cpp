@@ -38,18 +38,3 @@ void ManageTicket::on_button_read_ticket_clicked()
 }
 
 
-void ManageTicket::on_button_update_ticket_clicked()
-{
-    this->hide();
-    UpdateTicket* updateTicket = new UpdateTicket(this);
-    updateTicket->show();
-}
-
-
-void ManageTicket::on_button_delete_ticket_clicked()
-{
-    this->hide();
-    DeleteTicket* deleteTicket = new DeleteTicket(this);
-    deleteTicket->show();
-}
-

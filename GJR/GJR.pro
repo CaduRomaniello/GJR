@@ -4,6 +4,11 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
 
+INCLUDEPATH +=   $$PWD/../API/includes
+DEPENDPATH  += . $$PWD/../API/includes
+LIBS += -L$$PWD/../bin/API/debug/ -lAPI
+LIBS += -L$$PWD/../bin/API/release/ -lAPI
+
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
@@ -12,9 +17,7 @@ SOURCES += \
     controllers/createAirplane.cpp \
     controllers/createFlight.cpp \
     controllers/createTicket.cpp \
-    controllers/deleteAirplane.cpp \
-    controllers/deleteFlight.cpp \
-    controllers/deleteTicket.cpp \
+    controllers/createUser.cpp \
     controllers/loginScreen.cpp \
     controllers/readAirplane.cpp \
     controllers/readFlight.cpp \
@@ -32,9 +35,7 @@ HEADERS += \
     controllers/createAirplane.h \
     controllers/createFlight.h \
     controllers/createTicket.h \
-    controllers/deleteAirplane.h \
-    controllers/deleteFlight.h \
-    controllers/deleteTicket.h \
+    controllers/createUser.h \
     controllers/loginScreen.h \
     controllers/homeScreen.h \
     controllers/manageFlight.h \
@@ -48,9 +49,7 @@ HEADERS += \
     controllers/updateTicket.h
 
 FORMS += \
-    views/deleteAirplane.ui \
-    views/deleteFlight.ui \
-    views/deleteTicket.ui \
+    views/createUser.ui \
     views/readAirplane.ui \
     views/readFlight.ui \
     views/readTicket.ui \

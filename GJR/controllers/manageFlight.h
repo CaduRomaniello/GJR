@@ -4,8 +4,6 @@
 #include <QMainWindow>
 #include "createFlight.h"
 #include "readFlight.h"
-#include "updateFlight.h"
-#include "deleteFlight.h"
 
 namespace Ui {
 class ManageFlight;
@@ -25,10 +23,6 @@ private slots:
     void on_button_create_flight_clicked();
 
     void on_button_read_flight_clicked();
-
-    void on_button_update_flight_clicked();
-
-    void on_button_delete_flight_clicked();
 
 private:
     Ui::ManageFlight *ui;

@@ -1,5 +1,6 @@
 #include "createFlight.h"
 #include "ui_createFlight.h"
+#include "container.h"
 
 CreateFlight::CreateFlight(QWidget *parent) :
     QMainWindow(parent),
@@ -8,6 +9,14 @@ CreateFlight::CreateFlight(QWidget *parent) :
     ui->setupUi(this);
     this->parent = parent;
     this->setFixedSize(800, 600);
+
+
+    QSqlQueryModel* model = new QSqlQueryModel();
+    QSqlQuery query;
+    query.prepare("select registration from airplane");
+    query.exec();
+    model->setQuery(query);
+    ui->combo_box_id_airplane->setModel(model);
 }
 
 CreateFlight::~CreateFlight()
@@ -27,21 +36,31 @@ void CreateFlight::on_button_create_clicked()
     QString time = ui->time_flight->text();
     QString date = ui->date_flight->text();
     QString idAirplane = ui->combo_box_id_airplane->currentText();
-    QString origin = ui->line_edit_origin->text();
+    QString origin  = ui->line_edit_origin->text();
     QString destiny = ui->edit_label_destiny->text();
-    QString numberAvailable = ui->spin_box_available_seats->text();
 
-    QSqlQuery query;
-    query.exec("insert into flight (time, date, idAirplane, origin, destiny, numberOfAvailableSeats) values ('"+time+"','"+date+"',1,'"+origin+"','"+destiny+"',"+numberAvailable+")");
 
-    //cout << time << endl;
-    //cout << date << endl;
-    //cout << idAirplane << endl;
-    //cout << origin << endl;
-    //cout << destiny << endl;
-    //cout << numberAvailable << endl;
+//    QSqlQuery query;
+//    query.prepare("select capacity from airplane where registration='" + idAirplane + "'");
+//    QString seats = query.value(0).toString();
+//    ui->spin_box_available_seats->setValue(seats.toInt());
+
+    Container* c = Container::getContainer();
+    Flight* f = c->createFlight(idAirplane.toStdString(), time.toStdString(), date.toStdString(), origin.toStdString(), destiny.toStdString());
+
+    // n tem que ter delete?
 
     this->parent->show();
     this->close();
+}
+
+void CreateFlight::on_spin_box_available_seats_UpdateCapacity()
+{
+
+    QSqlQuery query;
+    query.exec("select capacity from airplane where registration='" + ui->combo_box_id_airplane->currentText() + "'");
+    QString seats = query.value(0).toString();
+    ui->spin_box_available_seats->setValue(seats.toInt());
+
 }
 

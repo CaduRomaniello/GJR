@@ -4,8 +4,6 @@
 #include <QMainWindow>
 #include "createAirplane.h"
 #include "readAirplane.h"
-#include "updateAirplane.h"
-#include "deleteAirplane.h"
 
 namespace Ui {
 class ManageAirplane;
@@ -25,10 +23,6 @@ private slots:
     void on_button_create_airplane_clicked();
 
     void on_button_read_airplane_clicked();
-
-    void on_button_update_airplane_clicked();
-
-    void on_button_delete_airplane_clicked();
 
 private:
     Ui::ManageAirplane *ui;

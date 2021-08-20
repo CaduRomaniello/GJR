@@ -8,6 +8,8 @@
 #include <QDebug>
 #include <QFileInfo>
 
+#include "homeScreen.h"
+
 using namespace std;
 
 namespace Ui {
@@ -19,7 +21,7 @@ class CreateTicket : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit CreateTicket(QWidget *parent = nullptr);
+    explicit CreateTicket(QWidget *parent = nullptr, QString idFlight = "", QString dateFlight = "", QString timeFlight = "", QString originFlight = "", QString destinyFlight = "");
     ~CreateTicket();
 
 private slots:

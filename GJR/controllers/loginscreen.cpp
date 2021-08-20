@@ -10,7 +10,9 @@ loginScreen::loginScreen(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::loginScreen)
 {
-    bdd.setDatabaseName("D:/Facul/eng_software_1/GJR/GJR/database/db_GJR.db");
+    QString db_path = QDir::currentPath();
+    db_path = db_path + "/../../GJR/database/db_GJR.db";
+    bdd.setDatabaseName(db_path);
     if (!bdd.open()){
         QMessageBox::information(this, "Erro", "Não foi possível abrir o banco de dados!", QMessageBox::Close);
         exit(1);
@@ -57,5 +59,13 @@ void loginScreen::loginUser() {
 
 void loginScreen::on_button_login_clicked() {
     loginUser();
+}
+
+
+void loginScreen::on_button_create_user_clicked()
+{
+    CreateUser* createUser = new CreateUser(this);
+    this->close();
+    createUser->show();
 }
 

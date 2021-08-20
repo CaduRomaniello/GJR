@@ -38,18 +38,3 @@ void ManageAirplane::on_button_read_airplane_clicked()
 }
 
 
-void ManageAirplane::on_button_update_airplane_clicked()
-{
-    this->hide();
-    UpdateAirplane* updateAirplane = new UpdateAirplane(this);
-    updateAirplane->show();
-}
-
-
-void ManageAirplane::on_button_delete_airplane_clicked()
-{
-    this->hide();
-    DeleteAirplane* deleteAirplane = new DeleteAirplane(this);
-    deleteAirplane->show();
-}
-

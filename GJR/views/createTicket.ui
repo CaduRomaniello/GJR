@@ -32,32 +32,6 @@
      <string>Fill in the fields to create a ticket</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="button_cancel">
-    <property name="geometry">
-     <rect>
-      <x>570</x>
-      <y>470</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Cancel</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="button_create">
-    <property name="geometry">
-     <rect>
-      <x>690</x>
-      <y>470</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Create</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_field_id_flight">
     <property name="geometry">
      <rect>
@@ -124,7 +98,7 @@
     <property name="geometry">
      <rect>
       <x>460</x>
-      <y>200</y>
+      <y>270</y>
       <width>301</width>
       <height>21</height>
      </rect>
@@ -147,7 +121,7 @@
     <property name="geometry">
      <rect>
       <x>460</x>
-      <y>180</y>
+      <y>250</y>
       <width>55</width>
       <height>16</height>
      </rect>
@@ -160,7 +134,7 @@
     <property name="geometry">
      <rect>
       <x>460</x>
-      <y>250</y>
+      <y>320</y>
       <width>55</width>
       <height>16</height>
      </rect>
@@ -173,7 +147,7 @@
     <property name="geometry">
      <rect>
       <x>460</x>
-      <y>270</y>
+      <y>340</y>
       <width>301</width>
       <height>21</height>
      </rect>
@@ -222,6 +196,55 @@
      </rect>
     </property>
    </widget>
+   <widget class="QLabel" name="label_cpf">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>180</y>
+      <width>55</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CPF</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="edit_field_cpf">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>200</y>
+      <width>171</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>588</x>
+      <y>450</y>
+      <width>251</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="button_create">
+       <property name="text">
+        <string>Create</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="button_cancel">
+       <property name="text">
+        <string>Cancel</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -229,7 +252,7 @@
      <x>0</x>
      <y>0</y>
      <width>861</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
