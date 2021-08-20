@@ -36,12 +36,12 @@
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>100</y>
+      <y>150</y>
       <width>681</width>
-      <height>351</height>
+      <height>251</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0">
+    <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0">
      <property name="spacing">
       <number>40</number>
      </property>
@@ -87,42 +87,6 @@
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QPushButton" name="button_update_flight">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>14</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Update Flight</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="button_delete_flight">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>14</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Delete Flight</string>
-       </property>
-      </widget>
-     </item>
     </layout>
    </widget>
    <widget class="QPushButton" name="button_back">
@@ -150,7 +114,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

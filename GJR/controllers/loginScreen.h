@@ -7,6 +7,8 @@
 #include <QDebug>
 #include <QFileInfo>
 
+#include "createUser.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class loginScreen; }
 QT_END_NAMESPACE
@@ -23,6 +25,8 @@ public:
 
 private slots:
     void on_button_login_clicked();
+
+    void on_button_create_user_clicked();
 
 private:
     Ui::loginScreen *ui;

@@ -34,6 +34,8 @@ private slots:
 
     void on_button_delete_flight_clicked();
 
+    void on_button_buy_ticket_clicked();
+
 private:
     Ui::HomeScreen *ui;
 };

@@ -75,9 +75,9 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>30</y>
-      <width>81</width>
-      <height>31</height>
+      <y>20</y>
+      <width>201</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="font">
@@ -86,7 +86,7 @@
      </font>
     </property>
     <property name="text">
-     <string>GJR</string>
+     <string>Agency GJR</string>
     </property>
    </widget>
    <widget class="QTableWidget" name="table_flight">
@@ -147,19 +147,19 @@
      <bool>true</bool>
     </property>
     <property name="rowCount">
-     <number>21</number>
+     <number>19</number>
     </property>
     <property name="columnCount">
-     <number>4</number>
+     <number>7</number>
     </property>
     <attribute name="horizontalHeaderVisible">
-     <bool>false</bool>
+     <bool>true</bool>
     </attribute>
     <attribute name="horizontalHeaderCascadingSectionResizes">
      <bool>true</bool>
     </attribute>
     <attribute name="horizontalHeaderDefaultSectionSize">
-     <number>130</number>
+     <number>134</number>
     </attribute>
     <attribute name="horizontalHeaderHighlightSections">
      <bool>true</bool>
@@ -168,21 +168,11 @@
      <bool>true</bool>
     </attribute>
     <attribute name="horizontalHeaderStretchLastSection">
-     <bool>true</bool>
+     <bool>false</bool>
     </attribute>
     <attribute name="verticalHeaderVisible">
      <bool>false</bool>
     </attribute>
-    <row>
-     <property name="text">
-      <string>New Row</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>Teste</string>
-     </property>
-    </row>
     <row/>
     <row/>
     <row/>
@@ -222,53 +212,28 @@
       <string>Flight Time</string>
      </property>
     </column>
-    <item row="0" column="0">
+    <column>
      <property name="text">
-      <string>0</string>
+      <string>Origin</string>
      </property>
-    </item>
-    <item row="0" column="1">
+    </column>
+    <column>
      <property name="text">
-      <string>PP-ETY</string>
+      <string>Destiny</string>
      </property>
-    </item>
-    <item row="0" column="2">
+    </column>
+    <column>
      <property name="text">
-      <string>13/08/2021</string>
+      <string>Seats Available</string>
      </property>
-    </item>
-    <item row="0" column="3">
-     <property name="text">
-      <string>23:30</string>
-     </property>
-    </item>
-    <item row="1" column="0">
-     <property name="text">
-      <string>1</string>
-     </property>
-    </item>
-    <item row="1" column="1">
-     <property name="text">
-      <string>PP-TTE</string>
-     </property>
-    </item>
-    <item row="1" column="2">
-     <property name="text">
-      <string>13/08/2021</string>
-     </property>
-    </item>
-    <item row="1" column="3">
-     <property name="text">
-      <string>22:00</string>
-     </property>
-    </item>
+    </column>
    </widget>
    <widget class="QWidget" name="horizontalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>520</x>
+      <x>290</x>
       <y>450</y>
-      <width>221</width>
+      <width>451</width>
       <height>41</height>
      </rect>
     </property>
@@ -287,6 +252,13 @@
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QPushButton" name="button_buy_ticket">
+       <property name="text">
+        <string>Buy Ticket</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
   </widget>
@@ -296,7 +268,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>26</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

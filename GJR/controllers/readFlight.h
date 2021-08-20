@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <iostream>
 #include <string>
+#include <QMessageBox>
+#include "updateFlight.h"
 
 using namespace std;
 
@@ -21,6 +23,10 @@ public:
 
 private slots:
     void on_button_cancel_clicked();
+
+    void on_button_delete_flight_clicked();
+
+    void on_button_edit_flight_clicked();
 
 private:
     Ui::ReadFlight *ui;

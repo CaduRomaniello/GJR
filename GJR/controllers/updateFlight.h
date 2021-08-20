@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <iostream>
 #include <string>
+#include <QTableWidget>
 
 using namespace std;
 
@@ -16,7 +17,7 @@ class UpdateFlight : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit UpdateFlight(QWidget *parent = nullptr, int id = -1);
+    explicit UpdateFlight(QWidget *parent = nullptr, QString idAirplane = "", QString dateFlight = "", QString timeFlight = "", QString originFlight = "", QString destinyFlight = "", QString seatsFlight = "", QTableWidget* table = nullptr, int row = -1, int id = -1);
     ~UpdateFlight();
 
 private slots:
@@ -26,9 +27,10 @@ private slots:
 
 private:
     Ui::UpdateFlight *ui;
-    QWidget* parent;
+    QTableWidget* table;
+    int row;
     int id;
-    void getDataFlightEdit();
+    QWidget* parent;
 };
 
 #endif // UPDATEFLIGHT_H

@@ -5,6 +5,8 @@
 
 #include <iostream>
 #include <string>
+#include <QMessageBox>
+#include "updateTicket.h"
 
 using namespace std;
 
@@ -22,6 +24,10 @@ public:
 
 private slots:
     void on_button_cancel_clicked();
+
+    void on_button_edit_ticket_clicked();
+
+    void on_button_delete_ticket_clicked();
 
 private:
     Ui::ReadTicket *ui;

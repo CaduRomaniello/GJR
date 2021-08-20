@@ -1,13 +1,33 @@
 #include "createTicket.h"
 #include "ui_createTicket.h"
+#include "container.h"
 
-CreateTicket::CreateTicket(QWidget *parent) :
+CreateTicket::CreateTicket(QWidget *parent, QString idFlight, QString dateFlight, QString timeFlight, QString originFlight, QString destinyFlight) :
     QMainWindow(parent),
     ui(new Ui::CreateTicket)
 {
     ui->setupUi(this);
     this->parent = parent;
     this->setFixedSize(800, 600);
+
+    if(idFlight != "") {
+        ui->combo_box_id_flight->addItem(idFlight);
+        ui->combo_box_id_flight->setDisabled(true);
+
+        QStringList time = timeFlight.split(":");
+        ui->time_flight->setTime(QTime(time[0].toInt(), time[1].toInt()));
+        ui->time_flight->setDisabled(true);
+
+        QStringList date = dateFlight.split("/");
+        ui->date_ticket->setDate(QDate(date[2].toInt(), date[1].toInt(), date[0].toInt()));
+        ui->date_ticket->setDisabled(true);
+
+        ui->line_edit_origin->setText(originFlight);
+        ui->line_edit_origin->setDisabled(true);
+
+        ui->edit_field_destiny->setText(destinyFlight);
+        ui->edit_field_destiny->setDisabled(true);
+    }
 }
 
 CreateTicket::~CreateTicket()
@@ -32,16 +52,9 @@ void CreateTicket::on_button_create_clicked()
     QString origin = ui->line_edit_origin->text();
     QString destiny = ui->edit_field_destiny->text();
 
-    QSqlQuery query;
-    query.exec("insert into ticket (idFlight, passengerName, seat, time, date, origin, destiny) values (1,'"+passengerName+"',"+seat+",'"+time+"','"+date+"','"+origin+"','"+destiny+"')");
-
-    //cout << idFlight << endl;
-    //cout << passengerName << endl;
-    //cout << seat << endl;
-    //cout << time << endl;
-    //cout << date << endl;
-    //cout << origin << endl;
-    //cout << destiny << endl;
+    Container* c = Container::getContainer();
+    Ticket* t = c->createTicket(idFlight.toInt(), passengerName.toStdString(), seat.toInt());
+    delete t;
 
     this->parent->show();
     this->close();

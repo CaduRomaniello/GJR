@@ -4,8 +4,6 @@
 #include <QMainWindow>
 #include "createTicket.h"
 #include "readTicket.h"
-#include "updateTicket.h"
-#include "deleteTicket.h"
 
 namespace Ui {
 class ManageTicket;
@@ -25,10 +23,6 @@ private slots:
     void on_button_create_ticket_clicked();
 
     void on_button_read_ticket_clicked();
-
-    void on_button_update_ticket_clicked();
-
-    void on_button_delete_ticket_clicked();
 
 private:
     Ui::ManageTicket *ui;

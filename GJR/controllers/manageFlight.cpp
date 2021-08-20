@@ -38,18 +38,3 @@ void ManageFlight::on_button_read_flight_clicked()
 }
 
 
-void ManageFlight::on_button_update_flight_clicked()
-{
-    this->hide();
-    UpdateFlight* updateFlight = new UpdateFlight(this);
-    updateFlight->show();
-}
-
-
-void ManageFlight::on_button_delete_flight_clicked()
-{
-    this->hide();
-    DeleteFlight* deleteUpdate = new DeleteFlight(this);
-    deleteUpdate->show();
-}
-

@@ -24,8 +24,8 @@ public:
 
 private slots:
     void on_button_cancel_clicked();
-
     void on_button_create_clicked();
+    void on_spin_box_available_seats_UpdateCapacity();
 
 private:
     Ui::CreateFlight *ui;

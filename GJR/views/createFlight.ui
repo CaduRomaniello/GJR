@@ -40,19 +40,6 @@
      <string>Destiny</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="button_create">
-    <property name="geometry">
-     <rect>
-      <x>680</x>
-      <y>470</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Create</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_field_available">
     <property name="geometry">
      <rect>
@@ -64,19 +51,6 @@
     </property>
     <property name="text">
      <string>Number of available seates</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="button_cancel">
-    <property name="geometry">
-     <rect>
-      <x>560</x>
-      <y>470</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Cancel</string>
     </property>
    </widget>
    <widget class="QComboBox" name="combo_box_id_airplane">
@@ -199,6 +173,32 @@
      </rect>
     </property>
    </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>548</x>
+      <y>450</y>
+      <width>231</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="button_create">
+       <property name="text">
+        <string>Create</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="button_cancel">
+       <property name="text">
+        <string>Cancel</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -206,7 +206,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
