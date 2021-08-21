@@ -22,10 +22,16 @@ jobs:
           ls
           qmake ../../API/API.pro
           make
+          echo "############################################"
+          ls -la
+          echo "############################################"
           cd '${{ github.workspace }}/bin/FUNCTIONAL/'
           ls
           qmake ../../FUNCTIONAL/FUNCTIONAL.pro
           make
+          echo "############################################"
+          ls -la
+          echo "############################################"
           chmod +x ./release/FUNCTIONAL
           ./FUNCTIONAL
           cd '${{ github.workspace }}/bin/UNIT/'
