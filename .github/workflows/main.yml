@@ -18,8 +18,7 @@ jobs:
 
       - name: Run unit and functional tests
         run: |
-          echo '${{ github.workspace }}'
-          echo $PWD
+          cd '${{ github.workspace }}'
           cd ./bin/API/
           qmake ../../API/API.pro
           make
