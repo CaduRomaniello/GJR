@@ -20,8 +20,6 @@ jobs:
         run: |
           cd '${{ github.workspace }}'
           echo $PWD
-          cd ../bin/API/
-          echo $PWD
           cd '${{ github.workspace }}/bin/API'
           echo $PWD 
           ls -la
