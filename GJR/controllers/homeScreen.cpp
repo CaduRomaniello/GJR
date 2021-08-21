@@ -60,7 +60,7 @@ void HomeScreen::on_button_manager_airplane_clicked()
 void HomeScreen::on_button_manage_ticket_clicked()
 {
     this->hide();
-    ManageTicket* manageTicket = new ManageTicket(this);
+    ReadTicket* manageTicket = new ReadTicket(this);
     manageTicket->show();
 }
 

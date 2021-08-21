@@ -3,8 +3,8 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
+#include <QSqlQuery>
 #include "loginScreen.h"
-#include "homeScreen.h"
 
 namespace Ui {
 class CreateUser;
