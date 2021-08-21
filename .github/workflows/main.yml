@@ -14,13 +14,13 @@ jobs:
 
     steps:
       - uses: jurplel/install-qt-action@v2
-#      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
       - name: Run unit and functional tests
         run: |
           cd '${{ github.workspace }}'
           echo $PWD
-          cd '${{ github.workspace }}/bin/API'
+          cd '${{ github.workspace }}/../bin/API'
           echo $PWD 
           ls -la
           qmake ../../API/API.pro
