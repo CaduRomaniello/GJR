@@ -17,14 +17,27 @@ jobs:
 
       - name: Run unit and functional tests
         run: |
-          cd Runtime
-          make clean
-          make api
-          make test_func
-          make test_unit
-          cd ./bin
-          chmod +x funcional_tests
-          chmod +x unit_tests
-          cd ../
-          make run_unit
-          make run_func
+          cd bin/API/
+          qmake ../../API/API.pro
+          make
+          cd ../FUNCTIONAL/
+          qmake ../../FUNCTIONAL/FUNCTIONAL.pro
+          make
+          chmod +x ./release/FUNCTIONAL
+          ./FUNCTIONAL
+          cd ../UNIT/
+          qmake ../../UNIT/UNIT.pro
+          make
+          chmod +x ./release/UNIT
+          ./UNIT
+          
+#          make clean
+#          make api
+#          make test_func
+#          make test_unit
+#          cd ./bin
+#          chmod +x funcional_tests
+#          chmod +x unit_tests
+#          cd ../
+#          make run_unit
+#          make run_func
