@@ -18,6 +18,7 @@ jobs:
 
       - name: Run unit and functional tests
         run: |
+          ls -la
           echo $PWD
           cd ./bin/API/
           qmake ../../API/API.pro
