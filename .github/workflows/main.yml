@@ -18,17 +18,18 @@ jobs:
       
       - name: Run unit and functional tests
         run: |
-          cd '${{ github.workspace }}'
-          echo $PWD
-          ls -la
+          cd '${{ github.workspace }}/bin/API'
+          ls
           qmake ../../API/API.pro
           make
-          cd ../FUNCTIONAL/
+          cd '${{ github.workspace }}/bin/FUNCTIONAL/'
+          ls
           qmake ../../FUNCTIONAL/FUNCTIONAL.pro
           make
           chmod +x ./release/FUNCTIONAL
           ./FUNCTIONAL
-          cd ../UNIT/
+          cd '${{ github.workspace }}/bin/UNIT/'
+          ls
           qmake ../../UNIT/UNIT.pro
           make
           chmod +x ./release/UNIT
