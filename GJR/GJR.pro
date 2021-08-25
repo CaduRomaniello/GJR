@@ -8,6 +8,8 @@ INCLUDEPATH +=   $$PWD/../API/includes
 DEPENDPATH  += . $$PWD/../API/includes
 LIBS += -L$$PWD/../bin/API/debug/ -lAPI
 LIBS += -L$$PWD/../bin/API/release/ -lAPI
+LIBS += -L$$PWD/../bin/API/ -lAPI
+LIBS += -L$$PWD/../bin/API/ -lAPI
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.

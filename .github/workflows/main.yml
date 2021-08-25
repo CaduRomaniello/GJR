@@ -1,53 +1,47 @@
-name: CI GJR
+name: CI GJR - Test
 
 on:
   push:
-    branches: [main, tests, display]
+    branches: [main, master]
   pull_request:
-    branches: [main, tests, display]
+    branches: [main, master]
 
   workflow_dispatch:
 
 jobs:
-  tests:
+  API-CI:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
       - uses: jurplel/install-qt-action@v2
-      
-      - name: Run unit and functional tests
+
+      - name: Build API
         run: |
           cd '${{ github.workspace }}/bin/API'
-          ls
           qmake ../../API/API.pro
           make
-          echo "############################################"
-          ls -la
-          echo "############################################"
-          cd '${{ github.workspace }}/bin/FUNCTIONAL/'
-          ls
+
+      - name: Build Functional Tests
+        run: |
+          cd '${{ github.workspace }}/bin/FUNCTIONAL'
           qmake ../../FUNCTIONAL/FUNCTIONAL.pro
           make
-          echo "############################################"
-          ls -la
-          echo "############################################"
-          chmod +x ./release/FUNCTIONAL
-          ./FUNCTIONAL
-          cd '${{ github.workspace }}/bin/UNIT/'
-          ls
+
+      - name: Build Unit Tests
+        run: |
+          cd '${{ github.workspace }}/bin/UNIT'
           qmake ../../UNIT/UNIT.pro
           make
-          chmod +x ./release/UNIT
-          ./UNIT
-          
-#          make clean
-#          make api
-#          make test_func
-#          make test_unit
-#          cd ./bin
-#          chmod +x funcional_tests
-#          chmod +x unit_tests
-#          cd ../
-#          make run_unit
-#          make run_func
+
+      - name: Run Functional Tests
+        run: |
+          cd '${{ github.workspace }}/bin/FUNCTIONAL'
+          chmod +x ./ci_execution.sh
+          ./ci_execution.sh "./FUNCTIONAL"
+
+      - name: Run Unit Tests
+        run: |
+          cd '${{ github.workspace }}/bin/UNIT'
+          chmod +x ./ci_execution.sh
+          ./ci_execution.sh "./UNIT"
