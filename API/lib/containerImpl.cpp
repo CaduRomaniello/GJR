@@ -184,7 +184,6 @@ void ContainerBody::deleteFlight(int id){
 
 }
 Flight* ContainerBody::readFlight(int id){
-    return NULL;
     QSqlQuery query;
 
     query.prepare("select * from flight where id = ?");
@@ -265,7 +264,32 @@ void ContainerBody::deleteTicket(int id){
     query.exec();
 }
 Ticket* ContainerBody::readTicket(int id){
-    return NULL;
+    QSqlQuery query;
+
+    query.prepare("select * from ticket where id = ?");
+    query.addBindValue(id);
+    query.exec();
+
+    int count = 0;
+    while(query.next()){
+        count++;
+    }
+
+    if (count == 0){
+        return NULL;
+    }
+    else{
+        query.first();
+        int id = query.value(0).toInt();
+        int idFlight = query.value(1).toInt();
+        string passenger = query.value(2).toString().toStdString();
+        int seat = query.value(3).toInt();
+        string time = query.value(4).toString().toStdString();
+        string date = query.value(5).toString().toStdString();
+        string origin = query.value(6).toString().toStdString();
+        string destiny = query.value(7).toString().toStdString();
+        return new TicketHandle(id, idFlight, passenger, seat, time, date, origin, destiny);
+    }
 }
 void ContainerBody::updateTicket(int id, string passengerName, int seat){
     QSqlQuery query;

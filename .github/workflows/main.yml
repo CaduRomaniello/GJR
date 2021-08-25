@@ -2,9 +2,9 @@ name: CI GJR - Test
 
 on:
   push:
-    branches: [main, master]
+    branches: [main, Verona, CADU, DANIEL]
   pull_request:
-    branches: [main, master]
+    branches: [main, Verona, CADU, DANIEL]
 
   workflow_dispatch:
 

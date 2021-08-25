@@ -2,7 +2,6 @@
 
 
 void unit_flight_constructor();
-void unit_flight_destructor();
 void unit_flight_setFlightIdentifier();
 void unit_flight_getFlightIdentifier();
 void unit_flight_setTime();

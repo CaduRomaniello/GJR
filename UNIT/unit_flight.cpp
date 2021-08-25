@@ -37,7 +37,6 @@ void unit_flight_constructor(){
     cout << " - [" << "OK!" << "]" << endl;
 
 }
-void unit_flight_destructor(){}
 
 void unit_flight_setFlightIdentifier(){
 
@@ -245,7 +244,6 @@ void unit_flight_getAvailableSeats(){
 void run_unit_tests_flight(){
 
     unit_flight_constructor();
-    unit_flight_destructor();
     unit_flight_setFlightIdentifier();
     unit_flight_getFlightIdentifier();
     unit_flight_setTime();

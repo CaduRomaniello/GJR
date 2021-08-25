@@ -1,7 +1,7 @@
 #include <QCoreApplication>
 #include "container.h"
 
-int main(int argc, char *argv[])
+int main()
 {
 
     cout << "." << endl;
@@ -37,20 +37,16 @@ int main(int argc, char *argv[])
     string copilot = "pedro";
     int capacity = 30;
 
-    Airplane* x = c->createAirplane(model, manufacturer, registration, pilot, copilot, capacity);
+    Airplane* x0 = c->createAirplane(model, manufacturer, registration, pilot, copilot, capacity);
+    Airplane* x1 = c->readAirplane(registration);
 
-    query1.prepare("select * from airplane where registration = ?");
-    query1.addBindValue(QString::fromStdString(registration));
-    query1.exec();
+    // Check registration pushed to the database Airplane table
+    assert(x1 != NULL);
+    assert(x1->getRegistration() == x0->getRegistration());
 
-    count = 0;
-    while (query1.next()){
-        count++;
-    }
-    query1.first();
-    assert(count == 1);
+    delete x0;
+    delete x1;
     cout << "Ok" << endl;
-
     cout << "=====================================================" << endl;
 
 
@@ -60,20 +56,15 @@ int main(int argc, char *argv[])
     string origin = "OP";
     string destiny = "SP";
 
-    c->createFlight(registration, time, date, origin, destiny);
+    Flight* f0 = c->createFlight(registration, time, date, origin, destiny);
+    Flight* f1 = c->readFlight(1);
 
-    query2.prepare("select * from flight where id = ?");
-    query2.addBindValue(1);
-    query2.exec();
+    assert(f1 != NULL);
+    assert(f1->getId() == f0->getId() + 1);
 
-    count = 0;
-    while (query2.next()){
-        count++;
-    }
-    query2.first();
-    assert(count == 1);
+    delete f0;
+    delete f1;
     cout << "Ok" << endl;
-
     cout << "=====================================================" << endl;
 
 
@@ -81,51 +72,46 @@ int main(int argc, char *argv[])
     string passengerName = "Joao Pedro";
     int seat = 10;
 
-    c->createTicket(1, passengerName, seat);
+    Ticket* t0 = c->createTicket(1, passengerName, seat);
+    Ticket* t1 = c->readTicket(1);
 
-    query3.prepare("select * from ticket where id = ?");
-    query3.addBindValue(1);
-    query3.exec();
+    assert(t1 != NULL);
+    assert(t1->getId() == t0->getId() + 1);
 
-    count = 0;
-    while (query3.next()){
-        count++;
-    }
-    query3.first();
-    assert(count == 1);
+    delete t0;
+    delete t1;
     cout << "Ok" << endl;
-
     cout << "=====================================================" << endl;
     cout << "=====================================================" << endl;
 
 
     cout << "Get airplane" << endl;
 
-    Airplane* a = c->readAirplane("AA-AAA");
-
+    Airplane* a = c->readAirplane(registration);
     assert(a->getRegistration() == registration);
-    cout << "Ok" << endl;
 
+    delete a;
+    cout << "Ok" << endl;
     cout << "=====================================================" << endl;
 
 
     cout << "Get flight" << endl;
 
     Flight* f = c->readFlight(1);
+    assert(f->getId() == 1);
 
-    assert(f == NULL);
+    delete f;
     cout << "Ok" << endl;
-
     cout << "=====================================================" << endl;
 
 
     cout << "Get ticket" << endl;
 
     Ticket* t = c->readTicket(1);
+    assert(t->getId() == 1);
 
-    assert(t == NULL);
+    delete t;
     cout << "Ok" << endl;
-
     cout << "=====================================================" << endl;
     cout << "=====================================================" << endl;
 

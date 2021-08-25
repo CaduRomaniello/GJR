@@ -38,7 +38,6 @@ void unit_airplane_constructor(){
     cout << " - [" << "OK!" << "]" << endl;
 
 }
-void unit_airplane_destructor(){}
 
 void unit_airplane_setAirplaneIdentifier(){
 
@@ -246,7 +245,6 @@ void unit_airplane_getCapacity(){
 void run_unit_tests_airplane(){
 
     unit_airplane_constructor();
-    unit_airplane_destructor();
     unit_airplane_setAirplaneIdentifier();
     unit_airplane_getAirplaneIdentifier();
     unit_airplane_setModel();
