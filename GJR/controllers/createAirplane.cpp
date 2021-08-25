@@ -1,6 +1,7 @@
 #include "createAirplane.h"
 #include "ui_createAirplane.h"
 #include "container.h"
+#include <QMessageBox>
 
 CreateAirplane::CreateAirplane(QWidget *parent) :
     QMainWindow(parent),
@@ -32,9 +33,17 @@ void CreateAirplane::on_button_create_clicked()
     QString copilot = ui->edit_field_copilot->text();
     QString capacity = ui->spin_box_capacity->text();
 
-    Container* c = Container::getContainer();
-    Airplane* a = c->createAirplane(model.toStdString(), manufacturer.toStdString(), registration.toStdString(), pilot.toStdString(), copilot.toStdString(), capacity.toInt());
-    delete a;
+    if (capacity.toInt() > 0){
+        Container* c = Container::getContainer();
+        Airplane* a = c->createAirplane(model.toStdString(), manufacturer.toStdString(), registration.toStdString(), pilot.toStdString(), copilot.toStdString(), capacity.toInt());
+        delete a;
+        this->parent->show();
+        this->close();
+    }
+    else{
+        QMessageBox::information(this, "Login", "Capacity should be greater than 0!", QMessageBox::Close);
+    }
+
     //QSqlQuery query;
     //query.exec("insert into airplane (model, manufacturer, registration, pilot, copilot, capacity) values ('"+model+"','"+manufacturer+"','"+registration+"','"+pilot+"','"+copilot+"',"+capacity+")");
 
@@ -45,7 +54,7 @@ void CreateAirplane::on_button_create_clicked()
     //cout << copilot << endl;
     //cout << capacity << endl;
 
-    this->parent->show();
-    this->close();
+    //this->parent->show();
+    //this->close();
 }
 

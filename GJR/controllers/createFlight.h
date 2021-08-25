@@ -25,7 +25,9 @@ public:
 private slots:
     void on_button_cancel_clicked();
     void on_button_create_clicked();
-    void on_spin_box_available_seats_UpdateCapacity();
+    //void on_spin_box_available_seats_UpdateCapacity();
+
+    void on_combo_box_id_airplane_currentIndexChanged(int index);
 
 private:
     Ui::CreateFlight *ui;

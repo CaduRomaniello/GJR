@@ -32,6 +32,7 @@ ReadAirplane::ReadAirplane(QWidget *parent) :
             tableAirplane->setItem(airplaneCounter, 4, new QTableWidgetItem(query.value(4).toString()));
             tableAirplane->setItem(airplaneCounter, 5, new QTableWidgetItem(query.value(5).toString()));
             tableAirplane->setItem(airplaneCounter, 6, new QTableWidgetItem(query.value(6).toString()));
+            airplaneCounter += 1;
         }
     }
 }

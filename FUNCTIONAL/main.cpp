@@ -4,6 +4,7 @@
 int main(int argc, char *argv[])
 {
 
+    cout << "." << endl;
     QSqlDatabase bdd = QSqlDatabase::addDatabase("QSQLITE");
 
     QString db_path = QDir::currentPath();
