@@ -43,11 +43,24 @@ Airplane* ContainerBody::createAirplane(string model, string manufacturer, strin
 
 }
 void ContainerBody::deleteAirplane(string registration){
-    QSqlQuery query;
+    QSqlQuery query1, query2, query3;
+    query1.exec("select * from airplane where registration='"+QString::fromStdString(registration)+"'");
+    query1.first();
+    int idAirplane = query1.value(0).toInt();
 
-    query.prepare("DELETE FROM airplane WHERE registration = ?");
-    query.addBindValue(QString::fromStdString(registration));
-    query.exec();
+    query2.prepare("select * from flight where idAirplane = ?");
+    query2.addBindValue(idAirplane);
+    query2.exec();
+    int count = 0;
+    while(query2.next()){
+        int idFlight = query2.value(0).toInt();
+        this->deleteFlight(idFlight);
+        count += 1;
+    }
+
+    query3.prepare("DELETE FROM airplane WHERE registration=?");
+    query3.addBindValue(QString::fromStdString(registration));
+    query3.exec();
 }
 Airplane* ContainerBody::readAirplane(string registration){
     QSqlQuery query;
@@ -106,23 +119,64 @@ Flight* ContainerBody::createFlight(string registration, string time, string dat
     int availableSeats = query.value(6).toInt();
     int id = query.value(0).toInt();
 
-
-    query.prepare("insert into flight (time, date, idAirplane, origin, destiny, numberOfAvailableSeats) values (?, ?, ?, ?, ?, ?)");
-    query.addBindValue(QString::fromStdString(time));
-    query.addBindValue(QString::fromStdString(date));
+    query.prepare("select * from flight where idAirplane = ?");
     query.addBindValue(id);
-    query.addBindValue(QString::fromStdString(origin));
-    query.addBindValue(QString::fromStdString(destiny));
-    query.addBindValue(availableSeats);
     query.exec();
 
-    Flight* f = new FlightHandle(0, time, date, id, origin, destiny, availableSeats);
-    return f;
+    count = 0;
+    bool isEqual = false;
+    while(query.next()){
+        if ((query.value(1).toString().toStdString() == time) && (query.value(2).toString().toStdString() == date)){
+            isEqual = true;
+            break;
+        }
+        count++;
+    }
+
+    if (!isEqual){
+        query.prepare("insert into flight (time, date, idAirplane, origin, destiny, numberOfAvailableSeats) values (?, ?, ?, ?, ?, ?)");
+        query.addBindValue(QString::fromStdString(time));
+        query.addBindValue(QString::fromStdString(date));
+        query.addBindValue(id);
+        query.addBindValue(QString::fromStdString(origin));
+        query.addBindValue(QString::fromStdString(destiny));
+        query.addBindValue(availableSeats);
+        query.exec();
+
+        Flight* f = new FlightHandle(0, time, date, id, origin, destiny, availableSeats);
+        return f;
+    }
+    else{
+        return NULL;
+    }
+
+
+    //query.prepare("insert into flight (time, date, idAirplane, origin, destiny, numberOfAvailableSeats) values (?, ?, ?, ?, ?, ?)");
+    //query.addBindValue(QString::fromStdString(time));
+    //query.addBindValue(QString::fromStdString(date));
+    //query.addBindValue(id);
+    //query.addBindValue(QString::fromStdString(origin));
+    //query.addBindValue(QString::fromStdString(destiny));
+    //query.addBindValue(availableSeats);
+    //query.exec();
+
+    //Flight* f = new FlightHandle(0, time, date, id, origin, destiny, availableSeats);
+    //return f;
 
 }
 void ContainerBody::deleteFlight(int id){
 
     QSqlQuery query;
+
+    query.prepare("select * from ticket where idFlight = ?");
+    query.addBindValue(id);
+    query.exec();
+    int count = 0;
+    while(query.next()){
+        int idTicket = query.value(0).toInt();
+        this->deleteTicket(idTicket);
+        count += 1;
+    }
 
     query.prepare("DELETE FROM flight WHERE id = ?");
     query.addBindValue(id);
@@ -131,6 +185,31 @@ void ContainerBody::deleteFlight(int id){
 }
 Flight* ContainerBody::readFlight(int id){
     return NULL;
+    QSqlQuery query;
+
+    query.prepare("select * from flight where id = ?");
+    query.addBindValue(id);
+    query.exec();
+
+    int count = 0;
+    while(query.next()){
+        count++;
+    }
+
+    if (count == 0){
+        return NULL;
+    }
+    else{
+        query.first();
+        int id = query.value(0).toInt();
+        string time = query.value(1).toString().toStdString();
+        string date = query.value(2).toString().toStdString();
+        int idAirplane = query.value(3).toInt();
+        string origin = query.value(4).toString().toStdString();
+        string destiny = query.value(5).toString().toStdString();
+        int numberOfAvailableSeats = query.value(6).toString().toInt();
+        return new FlightHandle(id, time, date, idAirplane, origin, destiny, numberOfAvailableSeats);
+    }
 }
 void ContainerBody::updateFlight(int id, string time, string date, string origin, string destiny){
     QSqlQuery query;

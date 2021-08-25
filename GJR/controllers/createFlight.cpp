@@ -17,6 +17,7 @@ CreateFlight::CreateFlight(QWidget *parent) :
     query.exec();
     model->setQuery(query);
     ui->combo_box_id_airplane->setModel(model);
+    ui->spin_box_available_seats->setDisabled(true);
 }
 
 CreateFlight::~CreateFlight()
@@ -54,13 +55,24 @@ void CreateFlight::on_button_create_clicked()
     this->close();
 }
 
-void CreateFlight::on_spin_box_available_seats_UpdateCapacity()
+//void CreateFlight::on_spin_box_available_seats_UpdateCapacity()
+//{
+
+  //  QSqlQuery query;
+  //  query.exec("select capacity from airplane where registration='" + ui->combo_box_id_airplane->currentText() + "'");
+  //  QString seats = query.value(0).toString();
+  //  cout << seats.toStdString() << endl;
+  //  ui->spin_box_available_seats->setValue(seats.toInt());
+
+//}
+
+
+void CreateFlight::on_combo_box_id_airplane_currentIndexChanged(int index)
 {
-
     QSqlQuery query;
-    query.exec("select capacity from airplane where registration='" + ui->combo_box_id_airplane->currentText() + "'");
-    QString seats = query.value(0).toString();
+    query.exec("select * from airplane where registration='" + ui->combo_box_id_airplane->currentText() + "'");
+    query.first();
+    QString seats = query.value(6).toString();
     ui->spin_box_available_seats->setValue(seats.toInt());
-
 }
 

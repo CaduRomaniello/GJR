@@ -1,11 +1,17 @@
-# /.vscode
-# /API/API.pro.*
-# /GJR/GJR.pro.*
-# /FUNCTIONAL/FUNCTIONAL.pro.*
-# /UNIT/UNIT.pro.*
-# /bin/API
-# /bin/FUNCTIONAL
-# /bin/GUI
-# /bin/UNIT
-# !execution.sh
-# !_.txt
+/.vscode
+/API/API.pro.*
+/GJR/GJR.pro.*
+/FUNCTIONAL/FUNCTIONAL.pro.*
+/UNIT/UNIT.pro.*
+/bin/API/debug/*
+/bin/API/release/*
+/bin/FUNCTIONAL/debug/*
+/bin/FUNCTIONAL/release/*
+/bin/GUI/debug/*
+/bin/GUI/release/*
+/bin/UNIT/debug/*
+/bin/UNIT/release/*
+*.qmake
+*.qmake.*
+Makefile
+Makefile.*
