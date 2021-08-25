@@ -1,11 +1,11 @@
-# /.vscode
-# /API/API.pro.*
-# /GJR/GJR.pro.*
-# /FUNCTIONAL/FUNCTIONAL.pro.*
-# /UNIT/UNIT.pro.*
-# /bin/API
-# /bin/FUNCTIONAL
-# /bin/GUI
-# /bin/UNIT
-# !execution.sh
-# !_.txt
+/.vscode
+/API/API.pro.*
+/GJR/GJR.pro.*
+/FUNCTIONAL/FUNCTIONAL.pro.*
+/UNIT/UNIT.pro.*
+/bin/API
+/bin/FUNCTIONAL
+/bin/GUI
+/bin/UNIT
+!execution.sh
+!_.txt
