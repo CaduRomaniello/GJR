@@ -13,6 +13,7 @@ class CreateUser;
 class CreateUser : public QMainWindow
 {
     Q_OBJECT
+    friend class CreateUserTestGUI;
 
 public:
     explicit CreateUser(QWidget *parent = nullptr);

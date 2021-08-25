@@ -19,6 +19,7 @@ using namespace std;
 class HomeScreen : public QMainWindow
 {
     Q_OBJECT
+    friend class HomeScreenTestGUI;
 
 public:
     explicit HomeScreen(QWidget *parent = nullptr);

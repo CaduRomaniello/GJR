@@ -12,6 +12,7 @@ class ManageAirplane;
 class ManageAirplane : public QMainWindow
 {
     Q_OBJECT
+    friend class ManageAirplaneTestGUI;
 
 public:
     explicit ManageAirplane(QWidget *parent = nullptr);

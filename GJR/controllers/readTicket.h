@@ -17,6 +17,7 @@ class ReadTicket;
 class ReadTicket : public QMainWindow
 {
     Q_OBJECT
+    friend class ReadTicketTestGUI;
 
 public:
     explicit ReadTicket(QWidget *parent = nullptr);

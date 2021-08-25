@@ -19,6 +19,7 @@ class CreateTicket;
 class CreateTicket : public QMainWindow
 {
     Q_OBJECT
+    friend class CreateTicketTestGUI;
 
 public:
     explicit CreateTicket(QWidget *parent = nullptr, QString idFlight = "", QString dateFlight = "", QString timeFlight = "", QString originFlight = "", QString destinyFlight = "");

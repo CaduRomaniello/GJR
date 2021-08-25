@@ -15,6 +15,7 @@ class UpdateTicket;
 class UpdateTicket : public QMainWindow
 {
     Q_OBJECT
+    friend class UpdateTicketTestGUI;
 
 public:
     explicit UpdateTicket(QWidget *parent = nullptr, QString idFlight = "", QString namePerson = "", QString seatTicket = "", QString dateTicket = "", QString timeTicket = "", QString originTicket = "", QString destinyTicket = "", QTableWidget* table = nullptr, int row = -1, int id = -1);

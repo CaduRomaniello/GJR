@@ -16,6 +16,7 @@ class ReadAirplane;
 class ReadAirplane : public QMainWindow
 {
     Q_OBJECT
+    friend class ReadAirplaneTestGUI;
 
 public:
     explicit ReadAirplane(QWidget *parent = nullptr);
