@@ -35,7 +35,6 @@ void unit_ticket_constructor(){
     cout << " - [" << "OK!" << "]" << endl;
 
 }
-void unit_ticket_destructor(){}
 
 void unit_ticket_setTicketIdentifier(){
     
@@ -209,7 +208,6 @@ void unit_ticket_getDate(){
 void run_unit_tests_ticket(){
 
     unit_ticket_constructor();
-    unit_ticket_destructor();
     unit_ticket_setTicketIdentifier();
     unit_ticket_getTicketIdentifier();
     unit_ticket_setIdFlight();

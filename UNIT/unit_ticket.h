@@ -2,7 +2,6 @@
 
 
 void unit_ticket_constructor();
-void unit_ticket_destructor();
 void unit_ticket_setTicketIdentifier();
 void unit_ticket_getTicketIdentifier();
 void unit_ticket_setIdFlight();

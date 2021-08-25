@@ -2,7 +2,6 @@
 
 
 void unit_airplane_constructor();
-void unit_airplane_destructor();
 void unit_airplane_setAirplaneIdentifier();
 void unit_airplane_getAirplaneIdentifier();
 void unit_airplane_setModel();
