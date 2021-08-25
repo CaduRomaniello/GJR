@@ -12,6 +12,8 @@ DEPENDPATH  += . $$PWD/../API/includes
 INCLUDEPATH +=   $$PWD/../API/includes
 LIBS += -L$$PWD/../bin/API/debug/ -lAPI
 LIBS += -L$$PWD/../bin/API/release/ -lAPI
+LIBS += -L$$PWD/../bin/API/ -lAPI
+LIBS += -L$$PWD/../bin/API/ -lAPI
 
 SOURCES += \
         main.cpp \
