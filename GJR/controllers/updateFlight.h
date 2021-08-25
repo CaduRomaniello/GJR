@@ -15,6 +15,7 @@ class UpdateFlight;
 class UpdateFlight : public QMainWindow
 {
     Q_OBJECT
+    friend class UpdateFlightTestGUI;
 
 public:
     explicit UpdateFlight(QWidget *parent = nullptr, QString idAirplane = "", QString dateFlight = "", QString timeFlight = "", QString originFlight = "", QString destinyFlight = "", QString seatsFlight = "", QTableWidget* table = nullptr, int row = -1, int id = -1);

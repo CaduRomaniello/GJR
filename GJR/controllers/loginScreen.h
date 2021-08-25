@@ -18,6 +18,7 @@ using namespace std;
 class loginScreen : public QMainWindow
 {
     Q_OBJECT
+    friend class LoginScreenTestGUI;
 
 public:
     loginScreen(QWidget *parent = nullptr);

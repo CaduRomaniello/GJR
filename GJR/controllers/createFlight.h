@@ -17,6 +17,7 @@ class CreateFlight;
 class CreateFlight : public QMainWindow
 {
     Q_OBJECT
+    friend class CreateFlightTestGUI;
 
 public:
     explicit CreateFlight(QWidget *parent = nullptr);

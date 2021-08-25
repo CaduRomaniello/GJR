@@ -15,6 +15,7 @@ class UpdateAirplane;
 class UpdateAirplane : public QMainWindow
 {
     Q_OBJECT
+    friend class UpdateAirplaneTestGUI;
 
 public:
     explicit UpdateAirplane(QWidget *parent = nullptr, QString idAirplane = "", QString modelAirplane = "", QString manuAirplane = "", QString regAirplane = "", QString pilotAirplane = "", QString copAirplane = "", QString capacityAirplane = "", QTableWidget* table=nullptr, int row=-1);
