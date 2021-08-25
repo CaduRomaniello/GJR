@@ -184,6 +184,7 @@ void ContainerBody::deleteFlight(int id){
 
 }
 Flight* ContainerBody::readFlight(int id){
+    return NULL;
     QSqlQuery query;
 
     query.prepare("select * from flight where id = ?");
