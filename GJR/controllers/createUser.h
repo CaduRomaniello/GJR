@@ -26,6 +26,7 @@ private slots:
 
 private:
     Ui::CreateUser *ui;
+    QWidget* parent;
 };
 
 #endif // CREATEUSER_H

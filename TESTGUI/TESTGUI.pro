@@ -30,6 +30,8 @@ SOURCES +=  \
     ../GJR/controllers/homeScreen.cpp \
     ../GJR/controllers/manageFlight.cpp \
     ../GJR/controllers/manageAirplane.cpp \
+    main.cpp \
+    unit/homeScreenTestGUI.cpp \
     unit/loginScreenTestGUI.cpp
 
 HEADERS += \

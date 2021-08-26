@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.15.2, 2021-08-25T17:15:53. -->
+<!-- Written by QtCreator 4.15.2, 2021-08-25T18:58:40. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -68,6 +68,17 @@
     <value type="bool" key="AutoTest.Framework.QtTest">true</value>
    </valuemap>
    <valuemap type="QVariantMap" key="AutoTest.CheckStates">
+    <value type="Qt::CheckState" key="1@C:/Users/danie/OneDrive/Documents/UFOP/4-Periodo/BCC322/GJR/TESTGUI/unit/homeScreenTestGUI.cpp:Botao buy flight">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/danie/OneDrive/Documents/UFOP/4-Periodo/BCC322/GJR/TESTGUI/unit/homeScreenTestGUI.cpp:Botao buy ti">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/danie/OneDrive/Documents/UFOP/4-Periodo/BCC322/GJR/TESTGUI/unit/homeScreenTestGUI.cpp:Botao buy tic">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/danie/OneDrive/Documents/UFOP/4-Periodo/BCC322/GJR/TESTGUI/unit/homeScreenTestGUI.cpp:Botao buy ticket">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/danie/OneDrive/Documents/UFOP/4-Periodo/BCC322/GJR/TESTGUI/unit/homeScreenTestGUI.cpp:Botao delete flight">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/danie/OneDrive/Documents/UFOP/4-Periodo/BCC322/GJR/TESTGUI/unit/homeScreenTestGUI.cpp:Botao edit flight">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/danie/OneDrive/Documents/UFOP/4-Periodo/BCC322/GJR/TESTGUI/unit/homeScreenTestGUI.cpp:HomeScreenTestGUI">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/danie/OneDrive/Documents/UFOP/4-Periodo/BCC322/GJR/TESTGUI/unit/homeScreenTestGUI.cpp:casoDeTestePrincipal">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/danie/OneDrive/Documents/UFOP/4-Periodo/BCC322/GJR/TESTGUI/unit/homeScreenTestGUI.cpp:casoDeTestePrincipal_data">Unchecked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/danie/OneDrive/Documents/UFOP/4-Periodo/BCC322/GJR/TESTGUI/unit/homeScreenTestGUI.cpp:timeOut">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/danie/OneDrive/Documents/UFOP/4-Periodo/BCC322/GJR/TESTGUI/unit/loginScreenTestGUI.cpp:Botão create user">Checked</value>
     <value type="Qt::CheckState" key="1@C:/Users/danie/OneDrive/Documents/UFOP/4-Periodo/BCC322/GJR/TESTGUI/unit/loginScreenTestGUI.cpp:Login correto">Checked</value>
     <value type="Qt::CheckState" key="1@C:/Users/danie/OneDrive/Documents/UFOP/4-Periodo/BCC322/GJR/TESTGUI/unit/loginScreenTestGUI.cpp:Login incorreto">Checked</value>
     <value type="Qt::CheckState" key="1@C:/Users/danie/OneDrive/Documents/UFOP/4-Periodo/BCC322/GJR/TESTGUI/unit/loginScreenTestGUI.cpp:LoginScreenTestGUI">Checked</value>

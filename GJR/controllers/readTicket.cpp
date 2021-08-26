@@ -2,7 +2,7 @@
 #include "ui_readTicket.h"
 #include "container.h"
 
-ReadTicket::ReadTicket(QWidget *parent) :
+ReadTicket::ReadTicket(QWidget *parent, QString idFlight) :
     QMainWindow(parent),
     ui(new Ui::ReadTicket)
 {
@@ -17,7 +17,15 @@ ReadTicket::ReadTicket(QWidget *parent) :
     tableTicket->setStyleSheet("QTableView {selection-background-color: gray}");
 
     QSqlQuery query;
-    query.prepare("select * from ticket");
+
+    if(idFlight != "") {
+        query.prepare("select * from ticket where id = ?");
+        query.addBindValue(idFlight);
+    }
+
+    else {
+        query.prepare("select * from ticket");
+    }
 
     if (query.exec()){
         int ticketCounter = 0;

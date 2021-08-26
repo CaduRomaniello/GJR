@@ -21,12 +21,15 @@ SOURCES += \
     controllers/createTicket.cpp \
     controllers/createUser.cpp \
     controllers/loginScreen.cpp \
+    controllers/manageAdmin.cpp \
+    controllers/manageUser.cpp \
     controllers/readAirplane.cpp \
     controllers/readFlight.cpp \
     controllers/readTicket.cpp \
     controllers/updateAirplane.cpp \
     controllers/updateFlight.cpp \
     controllers/updateTicket.cpp \
+    controllers/updateUser.cpp \
     main.cpp \
     controllers/homeScreen.cpp \
     controllers/manageFlight.cpp \
@@ -39,16 +42,22 @@ HEADERS += \
     controllers/createUser.h \
     controllers/loginScreen.h \
     controllers/homeScreen.h \
+    controllers/manageAdmin.h \
     controllers/manageFlight.h \
     controllers/manageAirplane.h \
+    controllers/manageUser.h \
     controllers/readAirplane.h \
     controllers/readFlight.h \
     controllers/readTicket.h \
     controllers/updateAirplane.h \
     controllers/updateFlight.h \
-    controllers/updateTicket.h
+    controllers/updateTicket.h \
+    controllers/updateUser.h
 
 FORMS += \
+    views/updateUser.ui \
+    views/manageAdmin.ui \
+    views/manageUser.ui \
     views/createUser.ui \
     views/readAirplane.ui \
     views/readFlight.ui \

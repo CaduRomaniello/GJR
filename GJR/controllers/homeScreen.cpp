@@ -208,3 +208,13 @@ void HomeScreen::showEvent(QShowEvent *e)
 {
     this->reloadTable();
 }
+
+void HomeScreen::on_table_flight_itemDoubleClicked(QTableWidgetItem *item)
+{
+    int row = item->row();
+    QString idFlight = ui->table_flight->item(row, 0)->text();
+    ReadTicket* readTicket = new ReadTicket(this, idFlight);
+    this->hide();
+    readTicket->show();
+}
+

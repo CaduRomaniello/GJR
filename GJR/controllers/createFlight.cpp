@@ -10,7 +10,6 @@ CreateFlight::CreateFlight(QWidget *parent) :
     this->parent = parent;
     this->setFixedSize(800, 600);
 
-
     QSqlQueryModel* model = new QSqlQueryModel();
     QSqlQuery query;
     query.prepare("select registration from airplane");

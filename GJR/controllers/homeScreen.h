@@ -41,6 +41,8 @@ private slots:
 
     void on_button_buy_ticket_clicked();
 
+    void on_table_flight_itemDoubleClicked(QTableWidgetItem *item);
+
 private:
     Ui::HomeScreen *ui;
 };

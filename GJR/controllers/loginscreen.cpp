@@ -44,18 +44,17 @@ void loginScreen::loginUser() {
             Container* c = Container::getContainer();
             if (user->text().toStdString() == "admin"){
                 c->setAdmPermission(true);
+                this->close();
+                ManageAdmin* admin = new ManageAdmin(this);
+                admin->show();
             }
-            else{
+
+            else {
                 c->setAdmPermission(false);
+                this->close();
+                HomeScreen* home = new HomeScreen(this);
+                home->show();
             }
-
-            user->clear();
-            password->clear();
-
-            this->close();
-
-            HomeScreen* home = new HomeScreen(this);
-            home->show();
         }
         else{
             QMessageBox::information(this, "Login", "Login Incorrect", QMessageBox::Close);
@@ -71,11 +70,4 @@ void loginScreen::on_button_login_clicked() {
     loginUser();
 }
 
-
-void loginScreen::on_button_create_user_clicked()
-{
-    CreateUser* createUser = new CreateUser(this);
-    this->close();
-    createUser->show();
-}
 
