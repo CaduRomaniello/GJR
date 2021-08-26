@@ -1,4 +1,5 @@
 #include "homeScreen.h"
+#include "container.h"
 #include "ui_homeScreen.h"
 #include <QMessageBox>
 #include <QtSql>
@@ -43,25 +44,37 @@ HomeScreen::~HomeScreen()
 }
 
 void HomeScreen::on_button_manage_flight_clicked() {
-    this->hide();
-    ManageFlight* manageFlight = new ManageFlight(this);
-    manageFlight->show();
+    //this->reloadTable();
+    Container* c = Container::getContainer();
+    if (c->getAdmPermission()){
+        this->hide();
+        ManageFlight* manageFlight = new ManageFlight(this);
+        manageFlight->show();
+    }
 }
 
 
 void HomeScreen::on_button_manager_airplane_clicked()
 {
-    this->hide();
-    ManageAirplane* manageAirplane = new ManageAirplane(this);
-    manageAirplane->show();
+    //this->reloadTable();
+    Container* c = Container::getContainer();
+    if (c->getAdmPermission()){
+        this->hide();
+        ManageAirplane* manageAirplane = new ManageAirplane(this);
+        manageAirplane->show();
+    }
 }
 
 
 void HomeScreen::on_button_manage_ticket_clicked()
 {
-    this->hide();
-    ReadTicket* manageTicket = new ReadTicket(this);
-    manageTicket->show();
+    //this->reloadTable();
+    Container* c = Container::getContainer();
+    if (c->getAdmPermission()){
+        this->hide();
+        ReadTicket* manageTicket = new ReadTicket(this);
+        manageTicket->show();
+    }
 }
 
 
@@ -86,10 +99,12 @@ void HomeScreen::on_button_edit_flight_clicked()
         QString destinyFlight = destiny->text();
         QString seatsFlight = seats->text();
 
-
-        this->hide();
-        UpdateFlight* updateFlight = new UpdateFlight(this, idAirplane, dateFlight, timeFlight, originFlight, destinyFlight, seatsFlight, table, currentRow);
-        updateFlight->show();
+        Container* c = Container::getContainer();
+        if (c->getAdmPermission()){
+            this->hide();
+            UpdateFlight* updateFlight = new UpdateFlight(this, idAirplane, dateFlight, timeFlight, originFlight, destinyFlight, seatsFlight, table, currentRow);
+            updateFlight->show();
+        }
     }
 
     else {
@@ -100,6 +115,10 @@ void HomeScreen::on_button_edit_flight_clicked()
 
 void HomeScreen::on_button_delete_flight_clicked()
 {
+    Container* c = Container::getContainer();
+    if (!c->getAdmPermission()){
+        return;
+    }
     QTableWidget* table = ui->table_flight;
 
     if(table->currentItem() != 0) {
@@ -150,4 +169,42 @@ void HomeScreen::on_button_buy_ticket_clicked()
     else {
         QMessageBox::information(this, "Error", "Invalid selected item", QMessageBox::Close);
     }
+}
+
+void HomeScreen::reloadTable(){
+
+    QTableWidget* tableFlight = ui->table_flight;
+    tableFlight->clearContents();
+
+    tableFlight->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    tableFlight->setSelectionBehavior(QAbstractItemView::SelectRows);
+    tableFlight->setStyleSheet("QTableView {selection-background-color: gray}");
+
+    // Read and fill in the table with all flights in the database
+    QSqlQuery query;
+    query.prepare("select * from flight");
+
+    int count = 0;
+    if (query.exec()){
+        int flightCounter = 0;
+        tableFlight->setColumnCount(7);
+
+        while(query.next()){
+            tableFlight->insertRow(flightCounter);
+            tableFlight->setItem(flightCounter, 0, new QTableWidgetItem(query.value(0).toString()));
+            tableFlight->setItem(flightCounter, 1, new QTableWidgetItem(query.value(3).toString()));
+            tableFlight->setItem(flightCounter, 2, new QTableWidgetItem(query.value(2).toString()));
+            tableFlight->setItem(flightCounter, 3, new QTableWidgetItem(query.value(1).toString()));
+            tableFlight->setItem(flightCounter, 4, new QTableWidgetItem(query.value(4).toString()));
+            tableFlight->setItem(flightCounter, 5, new QTableWidgetItem(query.value(5).toString()));
+            tableFlight->setItem(flightCounter, 6, new QTableWidgetItem(query.value(6).toString()));
+            count++;
+        }
+    }
+
+}
+
+void HomeScreen::showEvent(QShowEvent *e)
+{
+    this->reloadTable();
 }

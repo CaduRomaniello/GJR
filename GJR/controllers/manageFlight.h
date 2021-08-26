@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "createFlight.h"
 #include "readFlight.h"
+#include "homeScreen.h"
 
 namespace Ui {
 class ManageFlight;
