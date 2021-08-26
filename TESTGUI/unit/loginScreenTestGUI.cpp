@@ -8,8 +8,6 @@
 #include "../GJR/controllers/loginScreen.h"
 #include "ui_loginScreen.h"
 
-// add necessary includes here
-
 class LoginScreenTestGUI : public QObject
 {
     Q_OBJECT
@@ -46,6 +44,7 @@ void LoginScreenTestGUI::casoDeTestePrincipal_data()
 
     QTest::newRow("Login incorreto") << "" << "" << d.ui->button_login << "Login Incorrect" << true;
     QTest::newRow("Login correto") << "admin" << "admin" << d.ui->button_login << "" << false;
+    QTest::newRow("Botão create user") << "" << "" << d.ui->button_create_user << "" << false;
 }
 
 void LoginScreenTestGUI::casoDeTestePrincipal()
@@ -91,5 +90,4 @@ void LoginScreenTestGUI::timeOut()
     QCOMPARE(dialogoAberto, d.isVisible());
 }
 
-QTEST_MAIN(LoginScreenTestGUI)
 #include "loginScreenTestGUI.moc"
