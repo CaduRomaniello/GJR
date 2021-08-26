@@ -43,7 +43,6 @@ void UpdateAirplane::on_button_update_airplane_clicked()
     QString registration = ui->edit_field_registration->text();
     QString pilot = ui->line_edit_pilot->text();
     QString copilot = ui->edit_field_copilot->text();
-    //int capacity = ui->spin_box_capacity->value();
 
     Container* c = Container::getContainer();
     c->updateAirplane(model.toStdString(), manufacturer.toStdString(), registration.toStdString(), pilot.toStdString(), copilot.toStdString());

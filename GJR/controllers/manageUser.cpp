@@ -82,8 +82,6 @@ void ManageUser::on_button_delete_user_clicked()
 
         if(teste == 1024) {
             int currentRow = table->currentRow();
-            // QTableWidgetItem* userId = table->item(currentRow, 0);
-            // int id = userId->text().toInt();
 
             // necessario excluir do banco
             table->removeRow(currentRow);

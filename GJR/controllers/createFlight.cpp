@@ -39,32 +39,14 @@ void CreateFlight::on_button_create_clicked()
     QString origin  = ui->line_edit_origin->text();
     QString destiny = ui->edit_label_destiny->text();
 
-
-//    QSqlQuery query;
-//    query.prepare("select capacity from airplane where registration='" + idAirplane + "'");
-//    QString seats = query.value(0).toString();
-//    ui->spin_box_available_seats->setValue(seats.toInt());
-
     Container* c = Container::getContainer();
     Flight* f = c->createFlight(idAirplane.toStdString(), time.toStdString(), date.toStdString(), origin.toStdString(), destiny.toStdString());
 
-    // n tem que ter delete?
+    delete f;
 
     this->parent->show();
     this->close();
 }
-
-//void CreateFlight::on_spin_box_available_seats_UpdateCapacity()
-//{
-
-  //  QSqlQuery query;
-  //  query.exec("select capacity from airplane where registration='" + ui->combo_box_id_airplane->currentText() + "'");
-  //  QString seats = query.value(0).toString();
-  //  cout << seats.toStdString() << endl;
-  //  ui->spin_box_available_seats->setValue(seats.toInt());
-
-//}
-
 
 void CreateFlight::on_combo_box_id_airplane_currentIndexChanged(int index)
 {

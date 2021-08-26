@@ -110,8 +110,6 @@ void ReadTicket::on_button_delete_ticket_clicked()
             table->removeRow(currentRow);
             Container* c = Container::getContainer();
             c->deleteTicket(ticket_id);
-
-            // Falta passar o Id para exluir no banco de dados
         }
     }
 

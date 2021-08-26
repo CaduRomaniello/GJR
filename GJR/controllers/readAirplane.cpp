@@ -98,8 +98,6 @@ void ReadAirplane::on_button_delete_airplane_clicked()
             table->removeRow(currentRow);
             Container* c = Container::getContainer();
             c->deleteAirplane(registration.toStdString());
-
-            // Falta passar o Id para exluir no banco de dados
         }
     }
 
