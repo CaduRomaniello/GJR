@@ -21,7 +21,15 @@ class API_EXPORT Container{
 
     public:
 
+        /*!
+        This function returns if the user has ADM permissions.
+        \return bool - true if the user has ADM permissions.
+        */
         virtual bool getAdmPermission() = 0;
+
+        /*!
+        This function sets the user permission.
+        */
         virtual void setAdmPermission(bool v) = 0;
 
         /*!

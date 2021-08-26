@@ -156,20 +156,6 @@ Flight* ContainerBody::createFlight(string registration, string time, string dat
     else{
         return NULL;
     }
-
-
-    //query.prepare("insert into flight (time, date, idAirplane, origin, destiny, numberOfAvailableSeats) values (?, ?, ?, ?, ?, ?)");
-    //query.addBindValue(QString::fromStdString(time));
-    //query.addBindValue(QString::fromStdString(date));
-    //query.addBindValue(id);
-    //query.addBindValue(QString::fromStdString(origin));
-    //query.addBindValue(QString::fromStdString(destiny));
-    //query.addBindValue(availableSeats);
-    //query.exec();
-
-    //Flight* f = new FlightHandle(0, time, date, id, origin, destiny, availableSeats);
-    //return f;
-
 }
 void ContainerBody::deleteFlight(int id){
 
