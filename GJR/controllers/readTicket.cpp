@@ -19,7 +19,7 @@ ReadTicket::ReadTicket(QWidget *parent, QString idFlight) :
     QSqlQuery query;
 
     if(idFlight != "") {
-        query.prepare("select * from ticket where id = ?");
+        query.prepare("select * from ticket where idFlight = ?");
         query.addBindValue(idFlight);
     }
 
@@ -60,6 +60,7 @@ void ReadTicket::on_button_cancel_clicked()
 
 void ReadTicket::on_button_edit_ticket_clicked()
 {
+
     QTableWidget* table = ui->table_ticket;
 
     if(table->currentItem() != 0) {

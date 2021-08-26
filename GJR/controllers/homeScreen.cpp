@@ -68,13 +68,17 @@ void HomeScreen::on_button_manager_airplane_clicked()
 
 void HomeScreen::on_button_manage_ticket_clicked()
 {
+    this->hide();
+    ReadTicket* manageTicket = new ReadTicket(this);
+    manageTicket->show();
+
     //this->reloadTable();
-    Container* c = Container::getContainer();
-    if (c->getAdmPermission()){
-        this->hide();
-        ReadTicket* manageTicket = new ReadTicket(this);
-        manageTicket->show();
-    }
+    //Container* c = Container::getContainer();
+    //if (c->getAdmPermission()){
+    //    this->hide();
+    //    ReadTicket* manageTicket = new ReadTicket(this);
+    //    manageTicket->show();
+    //}
 }
 
 
@@ -132,8 +136,10 @@ void HomeScreen::on_button_delete_flight_clicked()
 
             table->removeRow(currentRow);
 
+            Container* c = Container::getContainer();
+            c->deleteFlight(id);
+
             // Falta passar o Id para exluir no banco de dados
-            cout << id << endl;
         }
     }
 

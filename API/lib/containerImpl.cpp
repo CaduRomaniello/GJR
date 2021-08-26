@@ -185,9 +185,10 @@ void ContainerBody::deleteFlight(int id){
         count += 1;
     }
 
-    query.prepare("DELETE FROM flight WHERE id = ?");
-    query.addBindValue(id);
-    query.exec();
+    QSqlQuery q1;
+    q1.prepare("DELETE FROM flight WHERE id = ?");
+    q1.addBindValue(id);
+    q1.exec();
 
 }
 Flight* ContainerBody::readFlight(int id){
@@ -290,6 +291,7 @@ void ContainerBody::deleteTicket(int id){
     query.prepare("select * from ticket where id = ?");
     query.addBindValue(id);
     query.exec();
+    query.first();
 
     int idFlight = query.value(1).toInt();
 
@@ -297,8 +299,9 @@ void ContainerBody::deleteTicket(int id){
     query2.prepare("select * from flight where id = ?");
     query2.addBindValue(idFlight);
     query2.exec();
+    query2.first();
 
-    int availableSeats = query.value(6).toInt();
+    int availableSeats = query2.value(6).toInt();
 
     QSqlQuery query3;
     query3.prepare("UPDATE flight SET numberOfAvailableSeats = ? WHERE id = ?");
