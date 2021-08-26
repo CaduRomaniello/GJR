@@ -25,6 +25,9 @@ public:
     explicit HomeScreen(QWidget *parent = nullptr);
     ~HomeScreen();
 
+    void reloadTable();
+    void showEvent(QShowEvent *e);
+
 private slots:
     void on_button_manage_flight_clicked();
 
