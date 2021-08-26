@@ -43,18 +43,5 @@ void CreateAirplane::on_button_create_clicked()
     else{
         QMessageBox::information(this, "Login", "Capacity should be greater than 0!", QMessageBox::Close);
     }
-
-    //QSqlQuery query;
-    //query.exec("insert into airplane (model, manufacturer, registration, pilot, copilot, capacity) values ('"+model+"','"+manufacturer+"','"+registration+"','"+pilot+"','"+copilot+"',"+capacity+")");
-
-    //cout << model << endl;
-    //cout << manufacturer << endl;
-    //cout << registration << endl;
-    //cout << pilot << endl;
-    //cout << copilot << endl;
-    //cout << capacity << endl;
-
-    //this->parent->show();
-    //this->close();
 }
 

@@ -76,9 +76,7 @@ void UpdateFlight::on_button_update_clicked()
 
     Container* c = Container::getContainer();
     c->updateFlight(this->id, editTime.toStdString(), editDate, editOrigin, editDestiny);
-    //int id, string time, string date, string origin, string destiny
 
-    // Tem que fazer split para retirar o AM/PM
     // Update flight table
     this->table->item(this->row, 1)->setText(QString::fromStdString(editId));
     this->table->item(this->row, 2)->setText(QString::fromStdString(editDate));
