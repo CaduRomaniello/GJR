@@ -1,6 +1,7 @@
 #include "loginScreen.h"
 #include "ui_loginScreen.h"
 #include "homeScreen.h"
+#include "container.h"
 #include <string>
 #include <QMessageBox>
 
@@ -39,6 +40,15 @@ void loginScreen::loginUser() {
             count++;
         }
         if (count > 0){
+
+            Container* c = Container::getContainer();
+            if (user->text().toStdString() == "admin"){
+                c->setAdmPermission(true);
+            }
+            else{
+                c->setAdmPermission(false);
+            }
+
             user->clear();
             password->clear();
 

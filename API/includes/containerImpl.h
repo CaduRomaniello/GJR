@@ -6,7 +6,13 @@
 
 class API_EXPORT ContainerBody : public Body {
 
+    private:
+        bool admPermission;
+
     public:
+
+        bool getAdmPermission();
+        void setAdmPermission(bool v);
 
         /*!
             This is the default constructor for the ContainerBody Class.
@@ -115,6 +121,13 @@ class API_EXPORT ContainerBody : public Body {
 class API_EXPORT ContainerHandle : public Handle<ContainerBody>, public Container {
 
     public:
+
+        bool getAdmPermission(){
+            return pImpl_->getAdmPermission();
+        }
+        void setAdmPermission(bool v){
+            pImpl_->setAdmPermission(v);
+        }
 
         /*!
             This is the default destructor for the ContainerHandle Class.

@@ -21,6 +21,9 @@ class API_EXPORT Container{
 
     public:
 
+        virtual bool getAdmPermission() = 0;
+        virtual void setAdmPermission(bool v) = 0;
+
         /*!
             This function is part of the singleton pattern.
             \return Container* - the pointer to the singleton Container.
