@@ -7,6 +7,7 @@ CreateUser::CreateUser(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setFixedSize(800, 600);
+    this->parent = parent;
 }
 
 CreateUser::~CreateUser()
@@ -22,19 +23,16 @@ void CreateUser::on_button_create_user_clicked()
 
     if(user != "") {
         if(password == confirm) {
-            QMessageBox::information(this, "Successfully created", "You need to log in to your account.", QMessageBox::Ok);
+            QMessageBox::information(this, "Successfully created", "User created successfully.", QMessageBox::Ok);
             QSqlQuery query;
 
-            // É necessario adicionar no banco de dados
-            // Seria daora pedir a senha do admin
             query.prepare("insert into users (username, password) values (?, ?)");
             query.addBindValue(user);
             query.addBindValue(password);
             query.exec();
 
-            loginScreen* login = new loginScreen(this);
             this->close();
-            login->show();
+            this->parent->show();
         }
 
         else {
@@ -50,8 +48,7 @@ void CreateUser::on_button_create_user_clicked()
 
 void CreateUser::on_button_cancel_clicked()
 {
-    loginScreen* login = new loginScreen(this);
     this->close();
-    login->show();
+    this->parent->show();
 }
 

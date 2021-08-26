@@ -20,7 +20,7 @@ class ReadTicket : public QMainWindow
     friend class ReadTicketTestGUI;
 
 public:
-    explicit ReadTicket(QWidget *parent = nullptr);
+    explicit ReadTicket(QWidget *parent = nullptr, QString idFlight = "");
     ~ReadTicket();
 
 private slots:
