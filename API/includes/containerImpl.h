@@ -7,11 +7,18 @@
 class API_EXPORT ContainerBody : public Body {
 
     private:
-        bool admPermission;
+        bool admPermission; /*!< This attribute is represents if the user has ADM permission in the system. */
 
     public:
-
+        /*!
+        This function returns if the user has ADM permissions.
+        \return bool - true if the user has ADM permissions.
+        */
         bool getAdmPermission();
+
+        /*!
+        This function sets the user permission.
+        */
         void setAdmPermission(bool v);
 
         /*!
@@ -122,9 +129,17 @@ class API_EXPORT ContainerHandle : public Handle<ContainerBody>, public Containe
 
     public:
 
+         /*!
+        This function returns if the user has ADM permissions.
+        \return bool - true if the user has ADM permissions.
+        */
         bool getAdmPermission(){
             return pImpl_->getAdmPermission();
         }
+
+        /*!
+        This function sets the user permission.
+        */
         void setAdmPermission(bool v){
             pImpl_->setAdmPermission(v);
         }
