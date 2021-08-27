@@ -78,12 +78,14 @@ void UpdateFlight::on_button_update_clicked()
     c->updateFlight(this->id, editTime.toStdString(), editDate, editOrigin, editDestiny);
 
     // Update flight table
-    this->table->item(this->row, 1)->setText(QString::fromStdString(editId));
-    this->table->item(this->row, 2)->setText(QString::fromStdString(editDate));
-    this->table->item(this->row, 3)->setText(editTime);
-    this->table->item(this->row, 4)->setText(QString::fromStdString(editOrigin));
-    this->table->item(this->row, 5)->setText(QString::fromStdString(editDestiny));
-    this->table->item(this->row, 6)->setText(QString::fromStdString(editSeats));
+    if(this->row != -1) {
+        this->table->item(this->row, 1)->setText(QString::fromStdString(editId));
+        this->table->item(this->row, 2)->setText(QString::fromStdString(editDate));
+        this->table->item(this->row, 3)->setText(editTime);
+        this->table->item(this->row, 4)->setText(QString::fromStdString(editOrigin));
+        this->table->item(this->row, 5)->setText(QString::fromStdString(editDestiny));
+        this->table->item(this->row, 6)->setText(QString::fromStdString(editSeats));
+    }
 
     this->parent->show();
     this->close();

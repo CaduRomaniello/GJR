@@ -163,10 +163,10 @@
      </rect>
     </property>
     <property name="inputMask">
-     <string>&gt;AA-AAA</string>
+     <string/>
     </property>
     <property name="text">
-     <string>-</string>
+     <string/>
     </property>
     <property name="frame">
      <bool>true</bool>

@@ -12,6 +12,7 @@ class UpdateUser;
 class UpdateUser : public QMainWindow
 {
     Q_OBJECT
+    friend class UpdateUserTestGUI;
 
 public:
     explicit UpdateUser(QWidget *parent = nullptr, QString user = "");
