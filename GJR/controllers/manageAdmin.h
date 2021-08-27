@@ -13,6 +13,7 @@ class ManageAdmin;
 class ManageAdmin : public QMainWindow
 {
     Q_OBJECT
+    friend class ManageAdminTestGUI;
 
 public:
     explicit ManageAdmin(QWidget *parent = nullptr);

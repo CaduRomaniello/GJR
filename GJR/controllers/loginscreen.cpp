@@ -5,19 +5,11 @@
 #include <string>
 #include <QMessageBox>
 
-static QSqlDatabase bdd = QSqlDatabase::addDatabase("QSQLITE");
 
 loginScreen::loginScreen(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::loginScreen)
 {
-    QString db_path = QDir::currentPath();
-    db_path = db_path + "/../../GJR/database/db_GJR.db";
-    bdd.setDatabaseName(db_path);
-    if (!bdd.open()){
-        QMessageBox::information(this, "Erro", "Não foi possível abrir o banco de dados!", QMessageBox::Close);
-        exit(1);
-    }
 
     ui->setupUi(this);
     this->setFixedSize(800, 600);

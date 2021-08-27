@@ -62,8 +62,10 @@ void UpdateTicket::on_button_update_ticket_clicked()
     Container* c = Container::getContainer();
     c->updateTicket(this->id, name.toStdString(), seat);
 
-    this->table->item(this->row, 2)->setText(name);
-    this->table->item(this->row, 3)->setText(QString::number(seat));
+    if(this->row != -1) {
+        this->table->item(this->row, 2)->setText(name);
+        this->table->item(this->row, 3)->setText(QString::number(seat));
+    }
 
     this->parent->show();
     this->close();

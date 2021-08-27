@@ -70,6 +70,10 @@ void LoginScreenTestGUI::casoDeTestePrincipal()
 
     QTest::keyClicks(d.ui->edit_user, user);
     QTest::keyClicks(d.ui->edit_password, password);
+
+    QCOMPARE(d.ui->edit_user->text(), user);
+    QCOMPARE(d.ui->edit_password->text(), password);
+
     QTest::mouseClick(botao, Qt::LeftButton);
 }
 

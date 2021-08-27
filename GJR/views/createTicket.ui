@@ -219,7 +219,7 @@
      </rect>
     </property>
     <property name="inputMask">
-     <string>999.999.999-99</string>
+     <string/>
     </property>
    </widget>
    <widget class="QWidget" name="horizontalLayoutWidget">

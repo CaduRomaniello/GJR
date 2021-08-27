@@ -47,10 +47,12 @@ void UpdateAirplane::on_button_update_airplane_clicked()
     Container* c = Container::getContainer();
     c->updateAirplane(model.toStdString(), manufacturer.toStdString(), registration.toStdString(), pilot.toStdString(), copilot.toStdString());
 
-    this->table->item(this->row, 1)->setText(model);
-    this->table->item(this->row, 2)->setText(manufacturer);
-    this->table->item(this->row, 4)->setText(pilot);
-    this->table->item(this->row, 5)->setText(copilot);
+    if(row != -1) {
+        this->table->item(this->row, 1)->setText(model);
+        this->table->item(this->row, 2)->setText(manufacturer);
+        this->table->item(this->row, 4)->setText(pilot);
+        this->table->item(this->row, 5)->setText(copilot);
+    }
 
     this->parent->show();
     this->close();

@@ -39,6 +39,9 @@ void HomeScreenTestGUI::casoDeTestePrincipal_data()
     QTest::addColumn<QString>("mensagem");
     QTest::addColumn<bool>("visivel");
 
+    QTest::addRow("Botao manage flight") << d.ui->button_manage_flight << "" << false;
+    QTest::addRow("Botao manage ticket") << d.ui->button_manage_ticket << "" << false;
+    QTest::addRow("Botao manage airplane") << d.ui->button_manager_airplane << "" << false;
     QTest::addRow("Botao edit flight") << d.ui->button_edit_flight << "Invalid selected item" << true;
     QTest::addRow("Botao delete flight") << d.ui->button_delete_flight << "Invalid selected item" << true;
     QTest::addRow("Botao buy ticket") << d.ui->button_buy_ticket << "Invalid selected item" << true;
@@ -50,10 +53,10 @@ void HomeScreenTestGUI::casoDeTestePrincipal()
     QFETCH(QString, mensagem);
     QFETCH(bool, visivel);
 
-    d.show();
-
     dialogoMsg = mensagem;
     dialogoAberto = visivel;
+
+    d.show();
 
     QTimer::singleShot(500, this, SLOT(timeOut()));
 
@@ -71,17 +74,19 @@ void HomeScreenTestGUI::casoDeTestePrincipal()
 
 void HomeScreenTestGUI::timeOut()
 {
-    // Verificar e fechar message box
-    QWidgetList allToplevelWidgets = QApplication::topLevelWidgets();
-    foreach (QWidget *w, allToplevelWidgets) {
-        if (w->inherits("QMessageBox")) {
-            QMessageBox* mb = qobject_cast<QMessageBox*>(w);
-            QCOMPARE(mb->text(), dialogoMsg);
-            QTest::keyClick(mb, Qt::Key_Escape);
+    if(dialogoMsg != "") {
+        // Verificar e fechar message box
+        QWidgetList allToplevelWidgets = QApplication::topLevelWidgets();
+        foreach (QWidget *w, allToplevelWidgets) {
+            if (w->inherits("QMessageBox")) {
+                QMessageBox* mb = qobject_cast<QMessageBox*>(w);
+                QCOMPARE(mb->text(), dialogoMsg);
+                QTest::keyClick(mb, Qt::Key_Escape);
+            }
         }
-    }
 
-    QCOMPARE(dialogoAberto, d.isVisible());
+        QCOMPARE(dialogoAberto, d.isVisible());
+    }
 }
 
 #include "homeScreenTestGUI.moc"

@@ -34,8 +34,23 @@ SOURCES +=  \
     ../GJR/controllers/manageUser.cpp \
     ../GJR/controllers/updateUser.cpp \
     main.cpp \
+    unit/createAirplaneTestGUI.cpp \
+    unit/createFlightTestGUI.cpp \
+    unit/createTicketTestGUI.cpp \
+    unit/createUserTestGUI.cpp \
     unit/homeScreenTestGUI.cpp \
-    unit/loginScreenTestGUI.cpp
+    unit/loginScreenTestGUI.cpp \
+    unit/manageAdminTestGUI.cpp \
+    unit/manageAirplaneTestGUI.cpp \
+    unit/manageFlightTestGUI.cpp \
+    unit/manageUserTestGUI.cpp \
+    unit/readAirplaneTestGUI.cpp \
+    unit/readFlightTestGUI.cpp \
+    unit/readTicketTestGUI.cpp \
+    unit/updateAirplaneTestGUI.cpp \
+    unit/updateFlightTestGUI.cpp \
+    unit/updateTicketTestGUI.cpp \
+    unit/updateUserTestGUI.cpp
 
 HEADERS += \
         ../GJR/controllers/createAirplane.h \
@@ -75,3 +90,6 @@ FORMS += \
         ../GJR/views/manageAdmin.ui \
         ../GJR/views/manageUser.ui \
         ../GJR/views/updateUser.ui \
+
+DISTFILES += \
+    db_GJR_test.db
