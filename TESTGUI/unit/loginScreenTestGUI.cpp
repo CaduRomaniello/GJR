@@ -44,7 +44,6 @@ void LoginScreenTestGUI::casoDeTestePrincipal_data()
 
     QTest::newRow("Login incorreto") << "" << "" << d.ui->button_login << "Login Incorrect" << true;
     QTest::newRow("Login correto") << "admin" << "admin" << d.ui->button_login << "" << false;
-    QTest::newRow("Botão create user") << "" << "" << d.ui->button_create_user << "" << false;
 }
 
 void LoginScreenTestGUI::casoDeTestePrincipal()
@@ -68,7 +67,6 @@ void LoginScreenTestGUI::casoDeTestePrincipal()
     QVERIFY2(d.ui->label_password, "Campo não buildado");
     QVERIFY2(d.ui->edit_password, "Campo não buildado");
     QVERIFY2(d.ui->button_login, "Campo não buildado");
-    QVERIFY2(d.ui->button_create_user, "Campo não buildado");
 
     QTest::keyClicks(d.ui->edit_user, user);
     QTest::keyClicks(d.ui->edit_password, password);
