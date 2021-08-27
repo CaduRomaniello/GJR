@@ -11,6 +11,9 @@
 /bin/GUI/release/*
 /bin/UNIT/debug/*
 /bin/UNIT/release/*
+/bin/TESTGUI/debug/*
+/bin/TESTGUI/release/*
+/TESTGUI/TESTGUI.pro.*
 *.qmake
 *.qmake.*
 Makefile

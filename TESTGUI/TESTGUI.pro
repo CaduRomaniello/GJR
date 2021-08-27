@@ -30,6 +30,9 @@ SOURCES +=  \
     ../GJR/controllers/homeScreen.cpp \
     ../GJR/controllers/manageFlight.cpp \
     ../GJR/controllers/manageAirplane.cpp \
+    ../GJR/controllers/manageAdmin.cpp \
+    ../GJR/controllers/manageUser.cpp \
+    ../GJR/controllers/updateUser.cpp \
     main.cpp \
     unit/homeScreenTestGUI.cpp \
     unit/loginScreenTestGUI.cpp
@@ -49,6 +52,9 @@ HEADERS += \
         ../GJR/controllers/updateAirplane.h \
         ../GJR/controllers/updateFlight.h \
         ../GJR/controllers/updateTicket.h \
+        ../GJR/controllers/manageAdmin.h \
+        ../GJR/controllers/manageUser.h \
+        ../GJR/controllers/updateUser.h \
         ../API/includes/API_global.h
 
 FORMS += \
@@ -65,4 +71,7 @@ FORMS += \
         ../GJR/views/homeScreen.ui \
         ../GJR/views/loginScreen.ui \
         ../GJR/views/manageAirplane.ui \
-        ../GJR/views/manageFlight.ui
+        ../GJR/views/manageFlight.ui \
+        ../GJR/views/manageAdmin.ui \
+        ../GJR/views/manageUser.ui \
+        ../GJR/views/updateUser.ui \
